@@ -2,6 +2,22 @@
 ![12](./12.png) 
 
 
+```
+period = 12  
+degree of polynomial = 4096  
+number of starting points sMax = 400
+dt = 2.500000e-03
+radius of the circle = 2.000000
+maximal allowed number of Newton iterations nMax = 40960 ( 10*degree) 
+maximal used number of Newton iterations maximal_n = 3337  
+epsilon = 1.000000e-06
+c = 0.000000 ; 1.000000 
+nan_errors = 0
+point_errors = 0
+point_drawn = 400
+```
+
+
 Code:
 * [m.c](m.c)
 
