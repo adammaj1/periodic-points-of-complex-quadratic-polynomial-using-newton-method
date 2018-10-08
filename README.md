@@ -6,8 +6,7 @@ here describes periodic points of period dividing 12 of $`z \to z^2 + i`$). The 
 >>>
    
    
-Quote from the paper: [Newton's method in practice II: The iterated refinement Newton method and near-optimal complexity for finding all roots of some polynomials of very large degrees
-Marvin Randig, Dierk Schleicher, Robin Stoll](https://arxiv.org/abs/1703.05847)
+Quote from the paper: [Newton's method in practice II: "The iterated refinement Newton method and near-optimal complexity for finding all roots of some polynomials of very large degrees" by Marvin Randig, Dierk Schleicher, Robin Stoll](https://arxiv.org/abs/1703.05847)
 
 ![12](./12.png) 
 
