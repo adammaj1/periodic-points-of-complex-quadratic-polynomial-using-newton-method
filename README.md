@@ -4,7 +4,9 @@
 The Newton iteration for 400 starting points on a circle of radius r = 2 (here for a polynomial of degree 4096, so we do not have enough starting points to find all roots; the polynomial shown
 here describes periodic points of period dividing 12 of $`z \to z^2 + i`$). The apparent lines connect orbits under the Newton dynamics; 
 >>>
-Quote from paper: [Newton's method in practice II: The iterated refinement Newton method and near-optimal complexity for finding all roots of some polynomials of very large degrees
+   
+   
+Quote from the paper: [Newton's method in practice II: The iterated refinement Newton method and near-optimal complexity for finding all roots of some polynomials of very large degrees
 Marvin Randig, Dierk Schleicher, Robin Stoll](https://arxiv.org/abs/1703.05847)
 
 ![12](./12.png) 
