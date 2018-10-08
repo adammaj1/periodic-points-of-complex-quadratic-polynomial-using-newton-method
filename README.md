@@ -8,9 +8,13 @@ here describes periodic points of period dividing 12 of $`z \to z^2 + i`$). The 
    
 Quote from the paper: [Newton's method in practice II: "The iterated refinement Newton method and near-optimal complexity for finding all roots of some polynomials of very large degrees" by Marvin Randig, Dierk Schleicher, Robin Stoll](https://arxiv.org/abs/1703.05847)
 
+
+
+Here is my image: 
+
 ![12](./12.png) 
 
-
+Text output of c program 
 ```
 period = 12  
 degree of polynomial = 4096  
@@ -28,9 +32,14 @@ point_drawn = 400
 
 
 Code:
-* [m.c](m.c)
+* [m.c](m.c) - c code ( 1 file program which creates pgm file)
 
 
+Conversion from pgm to png using Image Magick: 
+
+```bash
+convert 12.pgm -resize 600x600 12.png
+```
 
 # Acknowledgments
 
