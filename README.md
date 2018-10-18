@@ -49,7 +49,7 @@ convert 12.pgm -resize 600x600 12.png
 
 # License
 
-This project is licensed under the  Creative Commons Attribution-ShareAlike 4.0 International License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the  GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 - see the [LICENSE](LICENSE) file for details
 
 # technical notes
 GitLab uses:
