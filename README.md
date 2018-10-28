@@ -41,6 +41,20 @@ Conversion from pgm to png using Image Magick:
 convert 12.pgm -resize 600x600 12.png
 ```
 
+
+
+
+
+
+
+# Files
+* [m.c](m.c) - c code ( 1 file program which creates 12.pgm file)
+* [p.mac](p.mac) - Maxima CAS batch file ( program) 
+* [2.mac](2.mac) - Maxima CAS batch file ( program) for checking peroid 2 case 
+
+
+
+
 # Acknowledgments
 
 * Hat tip to anyone who's code was used

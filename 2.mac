@@ -1,0 +1,122 @@
+/*
+
+
+
+
+
+batch file for Maxima CAS
+
+
+
+equation
+z^4+2*%i*z^2-z+%i-1 = 0 
+
+
+roots : 
+
+ c
++1.300242590220120419; -0.624810533843826587 
+-0.300242590220120419; +0.624810533843826587  
+-1.000000000000000000; +1.000000000000000000  	= -1 + i
+-0.000000000000000000; -1.000000000000000000  	= -i
+
+
+maxima 
+0.6248105338438267*%i-0.3002425902201204,
+1.0*%i-1.0					= -1 + i  = OK
+4.297608005143088E-16-0.999999999999999*%i 	= -i = OK
+1.30024259022012-0.6248105338438276*%i
+
+///////////////////////////////////////
+
+%i6) c:%i
+(%o6) %i
+(%i7) p:2
+(%o7) 2
+(%i8) e2:F(p,z,c)
+(%o8) (z^2+%i)^2-z+%i
+(%i9) expand(e2)
+(%o9) z^4+2*%i*z^2-z+%i-1
+(%i10) s:allroots(e2)
+(%i11) s:map(rhs,s)
+(%o11) [0.6248105338438267*%i-0.3002425902201204,1.0*%i-1.0,
+        4.297608005143088E-16-0.999999999999999*%i,
+        1.30024259022012-0.6248105338438276*%i]
+(%i12) v = sum(s[i],i,1,length(s))
+(%o12) v = 0.0
+(%i13) sd:map(d,s)
+(%i14) plot2d([discrete,sd],[style,points])
+
+
+
+
+*/
+
+kill(all);
+display2d:false;
+
+/*
+https://en.wikipedia.org/wiki/Complex_quadratic_polynomial
+*/
+f(z,c):=z*z+c;
+
+
+
+/*
+iterated polynomial 
+
+
+*/
+fn(p, z, c) :=
+  if p=0 then z
+  elseif p=1 then f(z,c)
+  else f(fn(p-1, z, c),c);
+  
+/*
+
+function which roots are periodic points 
+f^p(z) = z
+ 
+*/  
+F(p, z, c) := fn(p, z, c) - z ;
+
+
+/* 
+converts complex number z = x*y*%i 
+to the list in a draw format:  
+[x,y] 
+*/
+d(z):=[float(realpart(z)), float(imagpart(z))]$
+
+
+
+
+
+
+
+
+
+
+c:%i;
+p:2;
+
+e2:F(p,z,c);
+expand(e2);
+
+/* find all roots */
+s:allroots(e2)$
+
+s:map(rhs,s);
+
+
+/* sum of all roots */
+v = sum(s[i], i, 1, length(s));
+
+
+/* plot it */
+sd: map(d,s)$ /* covert list of complex points to plot format */
+plot2d([discrete, sd],  [style, points]);
+
+
+
+
