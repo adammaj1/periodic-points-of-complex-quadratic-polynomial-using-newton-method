@@ -1,5 +1,5 @@
 
-
+# Period 12
 >>>
 The Newton iteration for 400 starting points on a circle of radius r = 2 (here for a polynomial of degree 4096, so we do not have enough starting points to find all roots; the polynomial shown
 here describes periodic points of period dividing 12 of $`z \to z^2 + i`$). The apparent lines connect orbits under the Newton dynamics; 
@@ -43,7 +43,28 @@ convert 12.pgm -resize 600x600 12.png
 
 
 
+# Period 2
 
+Roots:
+* +1.300242590220120419; -0.624810533843826587 
+* -0.300242590220120419; +0.624810533843826587 
+* -1.000000000000000000; +1.000000000000000000 = -1 + i
+* -0.000000000000000000; -1.000000000000000000 = -i
+
+Absolute value of roots sum 
+
+=  1.045143821782786559e-19 ( zero ) 
+
+It is computed using function: 
+```c
+long double ComputeVieteSum(){
+	complex long double sum = 0;
+	int d;
+	for (d=0; d<distinc_points; d++ )
+		sum += zzd[d]; // zzd is a array of roots (global variable)
+	return cabsl(sum);
+}
+```
 
 
 
