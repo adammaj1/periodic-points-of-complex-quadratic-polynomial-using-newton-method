@@ -67,6 +67,12 @@ long double ComputeVieteSum(){
 ```
 
 
+File name : p_sMax_n.png where:
+* p is a period 
+* sMax is a number of starting points 
+* n is an arbitrary number of a picture
+
+![2_8_12.png](./2_8_12.png) 
 
 # Files
 * [m.c](m.c) - c code ( 1 file program which creates 12.pgm file)
