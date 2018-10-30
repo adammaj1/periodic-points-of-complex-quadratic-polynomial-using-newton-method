@@ -19,7 +19,7 @@ where
 * p is a period
 * $`{z_p = z : f_c^p(z) =  z }`$ is a periodic point
 * $`F_p(z) = f_c^p(z) - z `$ is a function for the [Newton method ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points#Newton_method)
-* $`N+p`$ is a Newton function: 
+* $`N_p`$ is a Newton function: 
 
 
 
@@ -63,7 +63,21 @@ return z;
 
 
 
+## Vieta's formula
 
+One cech check if all roots are found using [Vieta's formulas](https://en.wikipedia.org/wiki/Vieta%27s_formulas)
+
+
+It is computed using function: 
+```c
+long double ComputeVieteSum(){
+	complex long double sum = 0;
+	int d;
+	for (d=0; d<distinc_points; d++ )
+		sum += zzd[d]; // zzd is a array of roots (global variable)
+	return cabsl(sum);
+}
+```
 
 
 
@@ -115,35 +129,10 @@ convert 12.pgm -resize 600x600 12.png
 
 # Period 2
 
-```math
-F_2(z) = z^4 + 2*i*z^2 - z + i-1
-
-
-```
 
 
 
 
-Roots:
-* +1.300242590220120419; -0.624810533843826587 
-* -0.300242590220120419; +0.624810533843826587 
-* -1.000000000000000000; +1.000000000000000000 = -1 + i
-* -0.000000000000000000; -1.000000000000000000 = -i
-
-Absolute value of roots sum 
-
-=  1.045143821782786559e-19 ( zero ) 
-
-It is computed using function: 
-```c
-long double ComputeVieteSum(){
-	complex long double sum = 0;
-	int d;
-	for (d=0; d<distinc_points; d++ )
-		sum += zzd[d]; // zzd is a array of roots (global variable)
-	return cabsl(sum);
-}
-```
 
 
 File name : p_sMax_n.png where:
