@@ -18,12 +18,52 @@ $`f_c^p(z) =  z `$
 where
 * p is a period
 * $`{z_p = z : f_c^p(z) =  z }`$ is a periodic point
-* $`F(z) = f_c^p(z) - z `$ is a function for the [Newton method ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points#Newton_method)
+* $`F_p(z) = f_c^p(z) - z `$ is a function for the [Newton method ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points#Newton_method)
+* $`N+p`$ is a Newton function: 
+
+
 
 
 ```math
 z_{n+1} = z_n - \frac {F_p(z_n)}{ F'_p(z_n)} = z_n - \frac {f_p(z_n) - z_n} {f'_p(z_n) - 1}  = z_n - N_p(z_n)
 ```
+
+It is computed in c function ( here $`z_n - N_p(z_n)`$ is computed , not only $`N_p`$ )
+```c
+/* 
+newton function 
+ N(z) = z - (fp(z)-z)/fp'(z)) 
+ used for computing periodic point 
+ of complex quadratic polynomial
+ f(z) = z*z +c
+
+*/
+
+complex long double N( complex long double c, complex long double zn , int pMax ){
+
+  
+complex long double z = zn;
+complex long double d = 1.0; /* d = first derivative with respect to z */
+int p;
+
+for (p=0; p < pMax; p++){
+
+   
+   d = 2*z*d; /* first derivative with respect to z */
+   z = z*z +c ; /* complex quadratic polynomial */
+  
+    
+}
+
+      z = zn - (z - zn)/(d - 1) ; // Newton function
+
+return z;
+}
+```
+
+
+
+
 
 
 
@@ -74,6 +114,15 @@ convert 12.pgm -resize 600x600 12.png
 
 
 # Period 2
+
+```math
+F_2(z) = z^4 + 2*i*z^2 - z + i-1
+
+
+```
+
+
+
 
 Roots:
 * +1.300242590220120419; -0.624810533843826587 
