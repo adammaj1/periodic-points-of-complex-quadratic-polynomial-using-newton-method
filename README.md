@@ -22,7 +22,7 @@ where
 
 
 ```math
-z_{n+1} = z_n - \frac F_p(z_n) F'_p(z_n) = z_n - \frac (f_p(z_n) - z_n) (f'_p(z_n) - 1)  = z_n - N_p(z_n)
+z_{n+1} = z_n - \frac {F_p(z_n)}{ F'_p(z_n)} = z_n - \frac {f_p(z_n) - z_n} {f'_p(z_n) - 1}  = z_n - N_p(z_n)
 ```
 
 
