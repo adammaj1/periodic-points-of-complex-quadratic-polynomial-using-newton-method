@@ -1,3 +1,33 @@
+# Introduction
+
+[Complex quadratic polynomial](https://en.wikipedia.org/wiki/Complex_quadratic_polynomial) 
+
+$`f_c(z) = z^2 + c`$
+
+[Iterated function](https://en.wikipedia.org/wiki/Complex_quadratic_polynomial#Notation)
+
+$`f_c^n(z) =  f_c^1(f_c^{n-1}(z)) `$
+
+
+[Periodic point of f ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points) are roots of the equation : 
+
+$`f_c^p(z) =  z `$
+
+
+
+where
+* p is a period
+* $`{z_p = z : f_c^p(z) =  z }`$ is a periodic point
+* $`F(z) = f_c^p(z) - z }`$ is a function for the [Newton method ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points#Newton_method)
+
+
+```math
+z_{n+1} = z_n - \frac{F_p(z_n)}{F'_p(z_n)} = z_n - \frac{f_p(z_n) - z_n}{f'_p(z_n) - 1}  = z_n - N_p(z_n)
+```
+
+
+
+
 
 # Period 12
 >>>
