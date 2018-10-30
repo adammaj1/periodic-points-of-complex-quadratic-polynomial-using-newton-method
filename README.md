@@ -18,11 +18,11 @@ $`f_c^p(z) =  z `$
 where
 * p is a period
 * $`{z_p = z : f_c^p(z) =  z }`$ is a periodic point
-* $`F(z) = f_c^p(z) - z }`$ is a function for the [Newton method ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points#Newton_method)
+* $`F(z) = f_c^p(z) - z `$ is a function for the [Newton method ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points#Newton_method)
 
 
 ```math
-z_{n+1} = z_n - \frac{F_p(z_n)}{F'_p(z_n)} = z_n - \frac{f_p(z_n) - z_n}{f'_p(z_n) - 1}  = z_n - N_p(z_n)
+z_{n+1} = z_n - \frac F_p(z_n) F'_p(z_n) = z_n - \frac (f_p(z_n) - z_n) (f'_p(z_n) - 1)  = z_n - N_p(z_n)
 ```
 
 
@@ -32,7 +32,7 @@ z_{n+1} = z_n - \frac{F_p(z_n)}{F'_p(z_n)} = z_n - \frac{f_p(z_n) - z_n}{f'_p(z_
 # Period 12
 >>>
 The Newton iteration for 400 starting points on a circle of radius r = 2 (here for a polynomial of degree 4096, so we do not have enough starting points to find all roots; the polynomial shown
-here describes periodic points of period dividing 12 of $`z \to z^2 + i`$). The apparent lines connect orbits under the Newton dynamics; 
+here describes periodic points of period dividing 12 of f(z) = z^2 + i). The apparent lines connect orbits under the Newton dynamics; 
 >>>
    
    
