@@ -72,10 +72,62 @@ File name : p_sMax_n.png where:
 * sMax is a number of starting points 
 * n is an arbitrary number of a picture
 
+
+Newton basins  
+
 ![2_8_12.png](./2_8_12.png) 
+
+
+
+Newton basins, rays and periodic points  
+
+![2_8_13.png](./2_8_13.png) 
+
+Text output of [the program](n.c) 
+
+```
+File 2_8_11.pgm saved. Newton iterations (rays) 
+Drawing Newton Basins 
+File 2_8_12.pgm saved. Newton Basins 
+File 2_8_13.pgm saved. Newton Basins and rays 
+File 2_8_14.pgm saved. only roots 
+ parameter c from fc(z) = z^2+c is c = 0.000000 ; 1.000000 
+
+ period = 2  
+ degree of polynomial = 4  = 2^period
+prime factors of 2  = 2	
+ number of roots = number of periodic points = degree of polynomial = 4  
+ number of starting points sMax = 8
+succes : all 4 distinct points are found !!
+
+ dt = 1.250000e-01
+ radius of the circle around all periodic points = 2.000000
+ 
+ maximal allowed number of Newton iterations nMax = 140  =  10*degree 
+ maximal used number of Newton iterations maximal_n = 43 
+stopping criterion for the Newton iteration is epsilon_stop = 1.000000e-18
+
+
+ periodic points are: 
+ d =  0 z = +1.300242590220120419; -0.624810533843826587 
+ d =  1 z = -0.300242590220120419; +0.624810533843826587 
+ d =  2 z = -1.000000000000000000; +1.000000000000000000 
+ d =  3 z = -0.000000000000000000; -1.000000000000000000 
+
+
+
+the sum of all roots should be zero by Viete’s formula (this sum should be the negative of the degree d − 1 coefficient)
+Viete sum = 1.045143821782786559e-19 ( it should be zero )
+minimal distnce =7.939947e-01 between
+z1 = -0.300242590220120419 ; +0.624810533843826587 
+z2 = -1.000000000000000000 ; +1.000000000000000000
+```
+
+
 
 # Files
 * [m.c](m.c) - c code ( 1 file program which creates 12.pgm file)
+* [n.c](n.c) - c code ( 1 file program which creates pgm files: basins and rays  )
 * [p.mac](p.mac) - Maxima CAS batch file ( program) 
 * [2.mac](2.mac) - Maxima CAS batch file ( program) for checking peroid 2 case 
 
