@@ -17,7 +17,7 @@ $`f_c^p(z) =  z `$
 
 where
 * p is a period
-* $`{z_p = z : f_c^p(z) =  z }`$ is a periodic point
+* $`z_p = \{ z : f_c^p(z) =  z \}`$ are a periodic points
 * $`F_p(z) = f_c^p(z) - z `$ is a function for the [Newton method ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points#Newton_method)
 * $`N_p`$ is a Newton function: 
 
@@ -25,10 +25,10 @@ where
 
 
 ```math
-z_{n+1} = z_n - \frac {F_p(z_n)}{ F'_p(z_n)} = z_n - \frac {f_p(z_n) - z_n} {f'_p(z_n) - 1}  = z_n - N_p(z_n)
+z_{n+1} = z_n - \frac {F_p(z_n)}{ F'_p(z_n)} = z_n - \frac {f_p(z_n) - z_n} {f'_p(z_n) - 1}  =  N_p(z_n)
 ```
 
-It is computed in c function ( here $`z_n - N_p(z_n)`$ is computed , not only $`N_p`$ )
+It is computed in c function: 
 ```c
 /* 
 newton function 
@@ -129,18 +129,6 @@ convert 12.pgm -resize 600x600 12.png
 
 # Period 2
 
-
-
-
-
-
-
-File name : p_sMax_n.png where:
-* p is a period 
-* sMax is a number of starting points 
-* n is an arbitrary number of a picture
-
-
 Newton basins  
 
 ![2_8_12.png](./2_8_12.png) 
@@ -150,6 +138,12 @@ Newton basins
 Newton basins, rays and periodic points  
 
 ![2_8_13.png](./2_8_13.png) 
+
+File names are p_sMax_n.png where:
+* p is a period 
+* sMax is a number of starting points 
+* n is an arbitrary number of a picture
+
 
 Text output of [the program](n.c) 
 
