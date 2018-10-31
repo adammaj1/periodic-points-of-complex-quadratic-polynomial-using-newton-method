@@ -165,7 +165,7 @@ succes : all 4 distinct points are found !!
  dt = 1.250000e-01
  radius of the circle around all periodic points = 2.000000
  
- maximal allowed number of Newton iterations nMax = 140  =  10*degree 
+ maximal allowed number of Newton iterations nMax = 140  =  10*degree + 100
  maximal used number of Newton iterations maximal_n = 43 
 stopping criterion for the Newton iteration is epsilon_stop = 1.000000e-18
 

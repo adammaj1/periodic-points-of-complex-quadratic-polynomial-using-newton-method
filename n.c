@@ -6,20 +6,6 @@ gcc -std=c99 -Wall -Wextra -pedantic -O3 n.c -lm
 "The "flowers" are beautiful to behold but totally abhorrent from the numerical point of view." Ramillies
 https://math.stackexchange.com/questions/2407659/why-does-the-newton-raphson-method-not-converge-for-some-functions
 
---------- text output -------------
- period = 12  
- degree of polynomial = 4096  
- number of starting points sMax = 400
- dt = 2.500000e-03
- radius of the circle = 2.000000
- maximal allowed number of Newton iterations nMax = 40960 ( 10*degree) 
- maximal used number of Newton iterations maximal_n = 3337  
-epsilon = 1.000000e-06
- c = 0.000000 ; 1.000000 
-
-point_errors = 0
-point_drawn = 400
-
 
 -----------------------------------
 https://arxiv.org/abs/1703.05847
@@ -34,24 +20,6 @@ Marvin Randig, Dierk Schleicher, Robin Stoll
 We present a practical implementation based on Newton's method to find all roots of several families of complex polynomials of degrees exceeding one billion (109) so that the observed complexity to find all roots is between O(dlnd) and O(dln3d) (measuring complexity in terms of number of Newton iterations or computing time). All computations were performed successfully on standard desktop computers built between 2007 and 2012.
 
 
-
-
-Figure 2. The Newton iteration for 400 starting points on a circle
-of radius r = 2 (here for a polynomial of degree 4096, so we do not
-have enough starting points to find all roots; the polynomial shown
-here describes periodic points of period dividing 12 of z 7→ z
-2 + i).
-The apparent lines connect orbits under the Newton dynamics; colors
-indicate the number of iterations until an approximate root is
-found. The behavior of the iterations outside of the disk containing
-all roots is very parallel and “wasteful”, but required to carry
-over the control from the circle of starting points to the interesting
-dynamics on D. Observe that even if we had a very precise bound
-on the smallest disk containing all roots, this would not help much
-as most roots are away from the boundary of this dis
-
-----------------------
-convert 12.pgm -resize 600x600 12.png
 
 ------------------------------------
 cd existing_folder
@@ -926,8 +894,9 @@ int info(){
 	printf (" dt = %Le\n", dt);
 	printf (" radius of the circle around all periodic points = %Lf\n", radius);
 	printf (" \n");
-	printf (" maximal allowed number of Newton iterations nMax = %d  =  10*degree \n", nMax);
+	printf (" maximal allowed number of Newton iterations nMax = %d  =  10*degree + 100, see setup\n", nMax);
 	printf (" maximal used number of Newton iterations maximal_n = %d \n", maximal_n);
+	if (nMax == maximal_n) printf(" possible error : nMax == maximal_n ; increase nMax \n");
 	
 	printf ("stopping criterion for the Newton iteration is epsilon_stop = %Le\n", EPS);
 	
