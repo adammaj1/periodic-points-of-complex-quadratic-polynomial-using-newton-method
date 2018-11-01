@@ -147,12 +147,12 @@ Newton basins, rays and periodic points
 
 Newton basins with levels sets   
 
-![2_8_14.png](./2_8_13.png) 
+![2_8_14.png](./2_8_14.png) 
 
 
 Newton basins with level sets, rays and periodic points  
 
-![2_8_13.png](./2_8_13.png) 
+![2_8_15.png](./2_8_15.png) 
 
 
 
