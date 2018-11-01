@@ -1,3 +1,6 @@
+[How to find all roots of a polynomial, especially the complex ones, by using the Newton-Raphson Method](https://math.stackexchange.com/questions/998333/finding-the-all-roots-of-a-polynomial-by-using-newton-raphson-method)
+
+
 # Introduction
 
 [Complex quadratic polynomial](https://en.wikipedia.org/wiki/Complex_quadratic_polynomial) 
@@ -19,7 +22,9 @@ where
 * p is a period
 * $`z_p = \{ z : f_c^p(z) =  z \}`$ are a periodic points
 * $`F_p(z) = f_c^p(z) - z `$ is a function for the [Newton method ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points#Newton_method)
-* $`N_p`$ is a Newton function: 
+* $`N_p`$ is a Newton function
+* quadratic iteration : $`z_{k+1} = f_c(z_k) `$
+* Newton iteration : $`z_{n+1} = N_p(z_n) `$
 
 
 
@@ -138,6 +143,18 @@ Newton basins
 Newton basins, rays and periodic points  
 
 ![2_8_13.png](./2_8_13.png) 
+
+
+Newton basins with levels sets   
+
+![2_8_14.png](./2_8_13.png) 
+
+
+Newton basins with level sets, rays and periodic points  
+
+![2_8_13.png](./2_8_13.png) 
+
+
 
 File names are p_sMax_n.png where:
 * p is a period 

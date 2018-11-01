@@ -18,7 +18,53 @@ Newton's method in practice II: The iterated refinement Newton method and near-o
 Marvin Randig, Dierk Schleicher, Robin Stoll
 (Submitted on 16 Mar 2017 (v1), last revised 31 Dec 2017 (this version, v2))
 We present a practical implementation based on Newton's method to find all roots of several families of complex polynomials of degrees exceeding one billion (109) so that the observed complexity to find all roots is between O(dlnd) and O(dln3d) (measuring complexity in terms of number of Newton iterations or computing time). All computations were performed successfully on standard desktop computers built between 2007 and 2012.
+------------------------------------
 
+File 2_8_11.pgm saved. Newton iterations (rays) 
+File 2_8_12.pgm saved. Newton Basins 
+File 2_8_14.pgm saved. Newton Basins with Level Set Method 
+File 2_8_13.pgm saved. Newton Basins and rays 
+File 2_8_15.pgm saved. Newton Basins with Level Sets  and rays 
+File 2_8_16.pgm saved. only roots 
+ parameter c from fc(z) = z^2+c is c = 0.000000 ; 1.000000 
+
+ period = 2  
+ degree of polynomial = 4  = 2^period
+prime factors of 2  = 2	
+ number of roots = number of periodic points = degree of polynomial = 4  
+ number of starting points sMax = 8
+succes : all 4 distinct points are found !!
+
+ dt = 1.250000e-01
+ radius of the circle around all periodic points = 2.000000
+ 
+ maximal allowed number of Newton iterations nMax = 140  =  10*degree + 100, see setup
+ maximal used number of Newton iterations maximal_n = 42 
+stopping criterion for the Newton iteration is epsilon_stop = 1.000000e-18
+
+
+ periodic points are: 
+ d =  0 z = +1.300242590220120419; -0.624810533843826587 
+ d =  1 z = -0.300242590220120419; +0.624810533843826587 
+ d =  2 z = -1.000000000000000000; +1.000000000000000000 
+ d =  3 z = -0.000000000000000000; -1.000000000000000000 
+
+
+
+ the sum of all roots should be zero by Viete’s formula (this sum should be the negative of the degree d − 1 coefficient)
+ Viete sum = 1.045143821782786559e-19 ( it should be zero )
+ minimal distnce =7.939947e-01 between
+z1 = -0.300242590220120419 ; +0.624810533843826587 
+z2 = -1.000000000000000000 ; +1.000000000000000000
+ 
+real	0m5,223s
+user	0m5,207s
+sys	0m0,016s
+
+
+
+----------------------
+convert 2_8_14.pgm -resize 800x800 2_8_14.png
 
 
 ------------------------------------
@@ -28,6 +74,8 @@ git remote add origin git@gitlab.com:adammajewski/periodic-points-of-complex-qua
 git add .
 git commit -m "Initial commit"
 git push -u origin master
+
+--------------------------------
 
 
 
@@ -50,8 +98,9 @@ int sMax; // = 4*d = number of starting points
 long double dt; //  = 1.0 / sMax
 
 // failure: we have n > Mfail, where Mfail is the largest number of allowed iterations before the algorithm gives up
-int nMax; // = 1000000; // maxima number of Newton iterations  = 10 * d = M_fail 
-int maximal_n = 0;
+int nMax; // limit for maxima number of Newton iterations  = 50+10 * d = M_fail 
+int maximal_n = 0; // global maximal n = for all pixels
+int local_max_n = 0; // local mximal n = for one pixel
 
 complex long double c = 0.0+1.0*I ; // dendrit Julia set
 
@@ -92,7 +141,7 @@ int iWidth;	// horizontal dimension of array
 int iyMin = 0;	// Indexes of array starts from 0 not 1
 int iyMax;	//
 
-int iHeight = 1600;	//  
+int iHeight = 2000;	//  
 
 
 // The size of 1D array has to be a positive constant integer 
@@ -102,6 +151,7 @@ int iSize;	// = iWidth*iHeight;
 
 // memmory 1D array 
 unsigned char *data;
+unsigned char *data2;
 // iMax = iSize-1; // Indexes of array starts from 0 not 1 so the highest elements of an array is = array_name[size-1].
 
 //long double ER = 2.1;
@@ -541,32 +591,6 @@ int DrawRays(unsigned char A[]){
 
 
 
-complex long double GivePeriodic(complex long double c, complex long double z0, int period, long double eps2){
-
-	complex long double z = z0;
-	complex long double zPrev = z0; // prevoiuus value of z
-	int n ; // iteration
-
-
-
-
-	for (n=0; n<nMax; n++) {
-     
-		z = N( c, z, period);
-   
-    		//cDrawLine(zPrev, z, 100, data);
-    		if (cabs2(z - zPrev)< eps2) break; // succes 
-    
-    		zPrev = z; }
-    
-    	if ( n>maximal_n) maximal_n = n; // 
-     
-  	// printf(" n = %d\n", n); 
-
-	return z;
-}
-
-
 
 /*
 
@@ -680,6 +704,36 @@ complex long double GiveZ( int ix, int iy){
  find it's number'
 
 */
+
+
+
+
+complex long double GivePeriodic(complex long double c, complex long double z0, int period, long double eps2){
+
+	complex long double z = z0;
+	complex long double zPrev = z0; // prevoiuus value of z
+	int n ; // iteration
+
+
+
+	// Newton iteration
+	for (n=0; n<nMax; n++) {
+     
+		z = N( c, z, period);
+   
+    		if (cabs2(z - zPrev)< eps2) break; // succes 
+    
+    		zPrev = z; }
+    
+    	if ( n>maximal_n) maximal_n = n; // global value is saved for info
+     	local_max_n = n; // local value , save for Level Set Method
+  	
+
+	return z;
+}
+
+
+
 int GiveBasinNumber(complex long double zp, complex long double zzd[]){
 
 	int d = 0; // index of zzd array
@@ -696,27 +750,29 @@ int GiveBasinNumber(complex long double zp, complex long double zzd[]){
 
 
 
-unsigned char GiveBasinColor(complex long double z0){
+unsigned char GiveBasinColor(complex long double z0, int ColorStep){
 
 	
 	complex long double zp;
 	int i; 
-	int step = (int)((250 - 10)/distinc_points);
+	
 	
 	zp = GivePeriodic( c , z0, period, EPS2); // compute periodic point using Newton method
 	i = GiveBasinNumber(zp, zzd); // color is proportional to Number of Newton Basin in zzd array
 	
-	return 50 + i*step; // return 8 bit color = shades of gray
+	return 50 + i*ColorStep; // return 8 bit color = shades of gray
 	
 
 }
 
 //
-int DrawNewtonBasins(unsigned char A[]){
+int DrawNewtonBasins(unsigned char A[], unsigned char B[]){
 
 	int ix, iy;
 	int i;
+	int BasinColorStep = (int)((250 - 10)/degree); // step between colors of the basins
 	complex long double z;
+	int color;
 	
 	
 	// for all points (x,y) of the image ( 2D array)
@@ -725,7 +781,11 @@ int DrawNewtonBasins(unsigned char A[]){
  			     
  			z = GiveZ(ix, iy);  // compute pixel coordinate   
  			i = Give_i(ix, iy); // compute idex of 1D array	
-			A[i] = GiveBasinColor(z); // compute color and save it to 1D array         
+			A[i] = GiveBasinColor(z, BasinColorStep); // compute color and save it to 1D array 
+			color = A[i]  - 10*local_max_n;        
+			if (color > 255) color = 255 - color;
+			if (color < 0 ) color = - color;
+			B[i] = color;
 			}
 	return 0;
 
@@ -846,7 +906,13 @@ int setup()
       			return 1;
     		}
     		
-    		
+    	//  dynamic 1D array for the image 
+	data2 = malloc( iSize * sizeof(unsigned char) );
+  	if (data2 == NULL )
+    		{
+      			fprintf(stderr," Could not allocate memory for data2\n");
+      			return 1;
+    		}	
     		
     	//
     	zzs = malloc((sMax) * sizeof(complex long double));	
@@ -935,6 +1001,7 @@ int end(){
 	info();
 	// free memory
         free(data);
+        free(data2);
         free(zzs);
         free(zzd);
         
@@ -964,20 +1031,25 @@ int main() {
   
   	//
   	if (degree < 255 ) { // there are only 255 colors !!
-  		printf("Drawing Newton Basins \n");
-  		DrawNewtonBasins(data);
+  		printf("Drawing Newton Basins \r");
+  		DrawNewtonBasins(data, data2);
    		SaveArray2PGMFile( data, period, sMax, 12,  "Newton Basins");
+   		SaveArray2PGMFile( data2, period, sMax, 14,  "Newton Basins with Level Set Method");
    		
    		DrawRays(data);
    		SaveArray2PGMFile( data, period, sMax, 13,  "Newton Basins and rays");
    		
+   		DrawRays(data2);
+   		SaveArray2PGMFile( data2, period, sMax, 15,  "Newton Basins with Level Sets  and rays");
+   		
   	  	
   		}
+  		else printf("degree >= 255. There are only 255 colors so basins are not drawn \n");
   
   	// 
   	FillArray(data); // make all points white = 255
   	DrawRootsColor(data, 0); // draw black roots on white background
-  	SaveArray2PGMFile( data, period, sMax, 14,  "only roots");
+  	SaveArray2PGMFile( data, period, sMax, 16,  "only roots");
   
   
   
