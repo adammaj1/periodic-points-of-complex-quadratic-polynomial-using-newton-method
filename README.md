@@ -165,11 +165,13 @@ File names are p_sMax_n.png where:
 Text output of [the program](n.c) 
 
 ```
+
 File 2_8_11.pgm saved. Newton iterations (rays) 
-Drawing Newton Basins 
 File 2_8_12.pgm saved. Newton Basins 
+File 2_8_14.pgm saved. Newton Basins with Level Set Method 
 File 2_8_13.pgm saved. Newton Basins and rays 
-File 2_8_14.pgm saved. only roots 
+File 2_8_15.pgm saved. Newton Basins with Level Sets  and rays 
+File 2_8_16.pgm saved. only roots 
  parameter c from fc(z) = z^2+c is c = 0.000000 ; 1.000000 
 
  period = 2  
@@ -182,8 +184,8 @@ succes : all 4 distinct points are found !!
  dt = 1.250000e-01
  radius of the circle around all periodic points = 2.000000
  
- maximal allowed number of Newton iterations nMax = 140  =  10*degree + 100
- maximal used number of Newton iterations maximal_n = 43 
+ maximal allowed number of Newton iterations nMax = 140  =  10*degree + 100, see setup
+ maximal used number of Newton iterations maximal_n = 42 
 stopping criterion for the Newton iteration is epsilon_stop = 1.000000e-18
 
 
@@ -195,11 +197,15 @@ stopping criterion for the Newton iteration is epsilon_stop = 1.000000e-18
 
 
 
-the sum of all roots should be zero by Viete’s formula (this sum should be the negative of the degree d − 1 coefficient)
-Viete sum = 1.045143821782786559e-19 ( it should be zero )
-minimal distnce =7.939947e-01 between
+ the sum of all roots should be zero by Viete’s formula (this sum should be the negative of the degree d − 1 coefficient)
+ Viete sum = 1.045143821782786559e-19 ( it should be zero )
+ minimal distnce =7.939947e-01 between
 z1 = -0.300242590220120419 ; +0.624810533843826587 
 z2 = -1.000000000000000000 ; +1.000000000000000000
+ 
+real	0m5,223s
+user	0m5,207s
+sys	0m0,016s
 ```
 
 
