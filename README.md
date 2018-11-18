@@ -217,6 +217,11 @@ sys	0m0,016s
 * [2.mac](2.mac) - Maxima CAS batch file ( program) for checking peroid 2 case 
 
 
+# See also
+* [LA MÉTHODE DE NEWTON ET SON FRACTAL](http://images.math.cnrs.fr/La-methode-de-Newton-et-son-fractal.html?lang=fr) by Tan Lei
+* [Newton Fractal](https://www.mitchr.me/SS/newton/index.html) by Mitch Richling
+* [Newton's method for periodic points](http://mathr.co.uk/blog/2018-11-17_newtons_method_for_periodic_points.html) by Claude Heiland-Allen
+
 
 
 # Acknowledgments
