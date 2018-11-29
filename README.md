@@ -3,13 +3,25 @@
 
 # Introduction
 
+
+
+Notation
+* p is a period
+* $`z_p = \{ z : f^p(z) =  z \}`$ are a periodic points
+* $`F^p(z) = f^p(z) - z `$ is a function for computing periodic point
+* $`N`$ is a Newton function = function used for Newton iteration [(Newton method) ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points#Newton_method)
+* quadratic iteration : $`z_{k+1} = f(z_k) `$
+* Newton iteration : $`z_{n+1} = N(z_n) `$
+
+
+
 Function f is [the complex quadratic polynomial](https://en.wikipedia.org/wiki/Complex_quadratic_polynomial) 
 
 $`f(z) = z^2 + c`$
 
 [First derivative of function f with respect to z](https://en.wikipedia.org/wiki/Complex_quadratic_polynomial#First_derivative_with_respect_to_z)is denoted by 
 
-$`z' = f'(z) = d(z)`$
+$`z' = f'(z) = d`$
 
 
 [Iterated function](https://en.wikipedia.org/wiki/Complex_quadratic_polynomial#Notation)
@@ -19,17 +31,19 @@ $`f^1(z) = f(z) `$
 $`z_n = f^n(z) =  f^1(f^{n-1}(z)) `$
 
 
-[Periodic point of f ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points) are roots of the equation : 
+[Periodic points of f ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points) are roots of the equation : 
 
 $`f^p(z) =  z `$
 
-where
-* p is a period
-* $`z_p = \{ z : f^p(z) =  z \}`$ are a periodic points
-* $`F^p(z) = f^p(z) - z `$ is a function for computing periodic point
-* $`N`$ is a Newton function = function used for Newton iteration [(Newton method) ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points#Newton_method)
-* quadratic iteration : $`z_{k+1} = f(z_k) `$
-* Newton iteration : $`z_{n+1} = N(z_n) `$
+it can be converted to standard form: 
+
+$`f^p(z) - z = 0`$
+
+New function is intoduced:
+
+$`F(z) = f(z) - z `$
+
+It is used as a basic function in Newton method. 
 
 
 
@@ -43,7 +57,7 @@ $`z_n = z_n^2 + c`$
 
 
 
-Now one can iterate Newton function: 
+Now one can iterate Newton function N 
 
 
 ```math
