@@ -3,37 +3,52 @@
 
 # Introduction
 
-[Complex quadratic polynomial](https://en.wikipedia.org/wiki/Complex_quadratic_polynomial) 
+Function f is [the complex quadratic polynomial](https://en.wikipedia.org/wiki/Complex_quadratic_polynomial) 
 
-$`f_c(z) = z^2 + c`$
+$`f(z) = z^2 + c`$
+
+[First derivative of function f with respect to z](https://en.wikipedia.org/wiki/Complex_quadratic_polynomial#First_derivative_with_respect_to_z)is denoted by 
+
+$`z' = f'(z) `$
+
 
 [Iterated function](https://en.wikipedia.org/wiki/Complex_quadratic_polynomial#Notation)
 
-$`f_c^n(z) =  f_c^1(f_c^{n-1}(z)) `$
+$`z_n = f^n(z) =  f^1(f^{n-1}(z)) `$
 
 
 [Periodic point of f ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points) are roots of the equation : 
 
-$`f_c^p(z) =  z `$
-
-
+$`f^p(z) =  z `$
 
 where
 * p is a period
-* $`z_p = \{ z : f_c^p(z) =  z \}`$ are a periodic points
-* $`F_p(z) = f_c^p(z) - z `$ is a function for the [Newton method ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points#Newton_method)
-* $`N_p`$ is a Newton function
+* $`z_p = \{ z : f^p(z) =  z \}`$ are a periodic points
+* $`F_p(z) = f(z) - z `$ is a function for the [Newton method ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points#Newton_method)
+* $`N`$ is a Newton function
 * quadratic iteration : $`z_{k+1} = f_c(z_k) `$
-* Newton iteration : $`z_{n+1} = N_p(z_n) `$
+* Newton iteration : $`z_{n+1} = N(z_n) `$
 
 
+
+Both function and it's derivative are computed together by iteration : 
+
+```math
+z'_0 = 1 
+z_0 
+z'_n = 2*z_{n-1}*z'_{n-1}
+z_n = z_n^2 + c
+```
+
+
+Now one can iterate Newton function: 
 
 
 ```math
-z_{n+1} = z_n - \frac {F_p(z_n)}{ F'_p(z_n)} = z_n - \frac {f_p(z_n) - z_n} {f'_p(z_n) - 1}  =  N_p(z_n)
+z_{n+1} = z_n - \frac {F(z_n)}{ F'(z_n)} = z_n - \frac {f(z_n) - z_n} {f'(z_n) - 1}  =  N(z_n)
 ```
 
-It is computed in c function: 
+All of it is computed in c function: 
 ```c
 /* 
 newton function 
