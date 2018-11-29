@@ -34,12 +34,9 @@ where
 Both function and it's derivative are computed together by iteration : 
 
 ```math
-z'_0 = 1   
-
-z_0   
-
-z'_n = 2*z_{n-1}*z'_{n-1}  
-
+z'_0 = 1\\ 
+z_0\\ 
+z'_n = 2*z_{n-1}*z'_{n-1}\\
 z_n = z_n^2 + c
 ```
 
