@@ -9,10 +9,12 @@ $`f(z) = z^2 + c`$
 
 [First derivative of function f with respect to z](https://en.wikipedia.org/wiki/Complex_quadratic_polynomial#First_derivative_with_respect_to_z)is denoted by 
 
-$`z' = f'(z) `$
+$`z' = f'(z) = d(z)`$
 
 
 [Iterated function](https://en.wikipedia.org/wiki/Complex_quadratic_polynomial#Notation)
+
+$`f^1(z) = f(z) `$  
 
 $`z_n = f^n(z) =  f^1(f^{n-1}(z)) `$
 
@@ -24,9 +26,9 @@ $`f^p(z) =  z `$
 where
 * p is a period
 * $`z_p = \{ z : f^p(z) =  z \}`$ are a periodic points
-* $`F_p(z) = f(z) - z `$ is a function for the [Newton method ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points#Newton_method)
-* $`N`$ is a Newton function
-* quadratic iteration : $`z_{k+1} = f_c(z_k) `$
+* $`F^p(z) = f^p(z) - z `$ is a function for computing periodic point
+* $`N`$ is a Newton function = function used for Newton iteration [(Newton method) ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points#Newton_method)
+* quadratic iteration : $`z_{k+1} = f(z_k) `$
 * Newton iteration : $`z_{n+1} = N(z_n) `$
 
 
@@ -45,7 +47,7 @@ Now one can iterate Newton function:
 
 
 ```math
-z_{n+1} = z_n - \frac {F(z_n)}{ F'(z_n)} = z_n - \frac {f(z_n) - z_n} {f'(z_n) - 1}  =  N(z_n)
+z_{n+1} = z_n - \frac {F_p(z_n)}{ F_p'(z_n)} = z_n - \frac {f^p(z_n) - z_n} {f_p'(z_n) - 1}  =  N_p(z_n)
 ```
 
 All of it is computed in c function: 
