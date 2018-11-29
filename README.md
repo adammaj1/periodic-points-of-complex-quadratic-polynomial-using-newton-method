@@ -35,9 +35,9 @@ $`z' = f'(z) = d`$
 
 [Iterated function](https://en.wikipedia.org/wiki/Complex_quadratic_polynomial#Notation)
 
-$`f^1(z) = f(z) `$  
+$`z_1 = f^1(z_0) = f(z_0) `$  
 
-$`z_n = f^n(z) =  f^1(f^{n-1}(z)) `$
+$`z_n = f^n(z_0) =  f^1(f^{n-1}(z_0)) `$
 
 
 [Periodic points of f ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points) are roots of the equation : 
