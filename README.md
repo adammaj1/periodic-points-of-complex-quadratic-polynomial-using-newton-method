@@ -1,4 +1,4 @@
-[How to find all roots of a polynomial, especially the complex ones, by using the Newton-Raphson Method](https://math.stackexchange.com/questions/998333/finding-the-all-roots-of-a-polynomial-by-using-newton-raphson-method)
+[How to find numerically all roots of a polynomial, especially the complex ones, by using the Newton-Raphson Method](https://math.stackexchange.com/questions/998333/finding-the-all-roots-of-a-polynomial-by-using-newton-raphson-method)
 
 
 # Introduction
@@ -10,10 +10,9 @@ Constant values:
 * p is a period
 
 
-Roots:
-* $`z_p = \{ z : F(z) =  0 \}`$ are a periodic points of function $`f^p`$
+Roots $`\{ z : F(z) =  0 \}`$ are a periodic points of function $`f^p`$
 
-Functions:
+Functions and derivatives:
 * $`f`$ 
 * $`F`$ is a function for computing periodic points of 
 * $`N`$ is a Newton function = function used for Newton iteration [(Newton method) ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points#Newton_method)
@@ -29,7 +28,7 @@ Function f is [the complex quadratic polynomial](https://en.wikipedia.org/wiki/C
 
 $`f(z) = z^2 + c`$
 
-[First derivative of function f with respect to z](https://en.wikipedia.org/wiki/Complex_quadratic_polynomial#First_derivative_with_respect_to_z)is denoted by 
+[First derivative of function f with respect to z](https://en.wikipedia.org/wiki/Complex_quadratic_polynomial#First_derivative_with_respect_to_z) is denoted by 
 
 $`z' = f'(z) = d`$
 
