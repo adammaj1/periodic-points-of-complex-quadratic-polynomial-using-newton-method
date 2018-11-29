@@ -11,10 +11,11 @@ Constant values:
 
 
 Roots:
-* $`z_p = \{ z : f^p(z) =  z \}`$ are a periodic points
+* $`z_p = \{ z : F(z) =  0 \}`$ are a periodic points of function $`f^p`$
 
 Functions:
-* $`F(z) = f^p(z) - z `$ is a function for computing periodic point
+* $`f`$ 
+* $`F`$ is a function for computing periodic points of 
 * $`N`$ is a Newton function = function used for Newton iteration [(Newton method) ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points#Newton_method)
 
 
@@ -50,7 +51,7 @@ $`f^p(z) - z = 0`$
 
 New function is intoduced:
 
-$`F(z) = f(z) - z `$
+$`F(z) = f^p(z) - z `$
 
 It is used as a basic function in Newton method. 
 
@@ -70,7 +71,7 @@ Now one can iterate Newton function N
 
 
 ```math
-z_{n+1} = z_n - \frac {F_p(z_n)}{ F_p'(z_n)} = z_n - \frac {f^p(z_n) - z_n} {f_p'(z_n) - 1}  =  N_p(z_n)
+z_{n+1} = z_n - \frac {F(z_n)}{ F'(z_n)} =  N(z_n)
 ```
 
 All of it is computed in c function: 
