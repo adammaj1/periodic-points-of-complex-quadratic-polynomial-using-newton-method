@@ -5,11 +5,20 @@
 
 
 
-Notation
+Constant values:
+* c is a parameter of f function
 * p is a period
+
+
+Roots:
 * $`z_p = \{ z : f^p(z) =  z \}`$ are a periodic points
-* $`F^p(z) = f^p(z) - z `$ is a function for computing periodic point
+
+Functions:
+* $`F(z) = f^p(z) - z `$ is a function for computing periodic point
 * $`N`$ is a Newton function = function used for Newton iteration [(Newton method) ](https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points#Newton_method)
+
+
+Iterations: 
 * quadratic iteration : $`z_{k+1} = f(z_k) `$
 * Newton iteration : $`z_{n+1} = N(z_n) `$
 
@@ -52,8 +61,8 @@ Both function and it's derivative are computed together by iteration :
 
 $` z'_0 = 1`$  
 $`z_0`$   
-$`z'_n = 2*z_{n-1}*z'_{n-1}`$  
-$`z_n = z_n^2 + c`$  
+$`z'_p = 2*z_{p-1}*z'_{p-1}`$  
+$`z_p = z_{p-1}^2 + c`$  
 
 
 
@@ -252,7 +261,10 @@ sys	0m0,016s
 * [LA MÉTHODE DE NEWTON ET SON FRACTAL](http://images.math.cnrs.fr/La-methode-de-Newton-et-son-fractal.html?lang=fr) by Tan Lei
 * [Newton Fractal](https://www.mitchr.me/SS/newton/index.html) by Mitch Richling
 * [Newton's method for periodic points](http://mathr.co.uk/blog/2018-11-17_newtons_method_for_periodic_points.html) by Claude Heiland-Allen
-
+* Newton Fractals by Chris Harshaw: 
+  * [blog](http://www.chrisharshaw.com/?p=34)
+  * [videos ](https://vimeo.com/user47350684)
+  * [python code](https://github.com/crharshaw/blog_materials)
 
 
 # Acknowledgments
