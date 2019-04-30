@@ -261,6 +261,7 @@ sys	0m0,016s
 * [LA MÉTHODE DE NEWTON ET SON FRACTAL](http://images.math.cnrs.fr/La-methode-de-Newton-et-son-fractal.html?lang=fr) by Tan Lei
 * [Newton Fractal](https://www.mitchr.me/SS/newton/index.html) by Mitch Richling
 * [Newton's method for periodic points](http://mathr.co.uk/blog/2018-11-17_newtons_method_for_periodic_points.html) by Claude Heiland-Allen
+* [Newton Fractals](https://cindyjs.org/gallery/main/NewtonFractal/) - interactive version ( using CindyJS)
 * Newton Fractals by Chris Harshaw: 
   * [blog](http://www.chrisharshaw.com/?p=34)
   * [videos ](https://vimeo.com/user47350684)
@@ -295,4 +296,6 @@ git commit -m "Initial commit"
 git push -u origin master
 
 ```
+
+local repo : ~/c/julia/periodic/newton/pgm2
 
