@@ -299,7 +299,46 @@ real	0m5,223s
 user	0m5,207s
 sys	0m0,016s
 ```
+## Period 3
 
+![3](3_16_15.png)
+
+```
+ parameter c from fc(z) = z^2+c is c = 0.000000 ; 1.000000 
+
+ period = 3  
+ degree of polynomial = 8  = 2^period
+prime factors of 3  = 3	
+ number of roots = number of periodic points = degree of polynomial = 8  
+ number of starting points sMax = 16
+succes : all 8 distinct points are found !!
+
+ dt = 6.250000e-02
+ radius of the circle around all periodic points = 2.000000
+ 
+ maximal allowed number of Newton iterations nMax = 180  =  10*degree + 100, see setup
+ maximal used number of Newton iterations maximal_n = 58 
+stopping criterion for the Newton iteration is epsilon_stop = 1.000000e-18
+
+
+ periodic points are: 
+ d =  0 z = +1.300242590220120419; -0.624810533843826587 
+ d =  1 z = +0.100102984663451134; -0.349424850666336804 
+ d =  2 z = -0.300242590220120419; +0.624810533843826587 
+ d =  3 z = -0.112077118724660643; +0.930043059065437968 
+ d =  4 z = -0.852418811174176060; +0.791526907300152676 
+ d =  5 z = -1.290491233241733357; +0.779281718235989916 
+ d =  6 z = +0.096796551780185860; -1.140114382717044562 
+ d =  7 z = +1.058087626696933066; -1.011312451218199194 
+
+
+
+ the sum of all roots should be zero by Viete’s formula (this sum should be the negative of the degree d − 1 coefficient)
+ Viete sum = 1.084202172485504434e-19 ( it should be zero )
+ minimal distnce =3.585710e-01 between
+z1 = -0.300242590220120419 ; +0.624810533843826587 
+z2 = -0.112077118724660643 ; +0.930043059065437968
+```
 
 
 # Files
