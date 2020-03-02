@@ -56,6 +56,8 @@ It is used as a basic function in Newton method.
 
 
 
+
+## Iteration of quadratic polynomial
 Both function and it's derivative are computed together by iteration : 
 
 
@@ -65,7 +67,7 @@ $`z'_p = 2*z_{p-1}*z'_{p-1}`$
 $`z_p = z_{p-1}^2 + c`$  
 
 
-
+## Newton method ( iteration)
 Now one can iterate Newton function N 
 
 
@@ -105,6 +107,22 @@ for (p=0; p < pMax; p++){
 return z;
 }
 ```
+## Number of periodic points and cycles
+
+Number of periodic points d for period p and it's divisors = degree of function F defining periodic points 
+
+$`d = 2^p`$
+
+
+Number e of periodic points for exact period p  
+
+$` e \le d `$ 
+
+Number of cycles  
+
+$`r = e / p `$
+
+
 
 
 
@@ -170,9 +188,43 @@ Conversion from pgm to png using Image Magick:
 convert 12.pgm -resize 600x600 12.png
 ```
 
+# Period 1
+![1](1_4_15.png)
 
+``` 
+period = 1  
+ degree of polynomial = 2  = 2^period
+prime factors of 1  = 
+ number of roots = number of periodic points = degree of polynomial = 2  
+ number of starting points sMax = 4
+succes : all 2 distinct points are found !!
+
+ dt = 2.500000e-01
+ radius of the circle around all periodic points = 2.000000
+ 
+ maximal allowed number of Newton iterations nMax = 120  =  10*degree + 100, see setup
+ maximal used number of Newton iterations maximal_n = 29 
+stopping criterion for the Newton iteration is epsilon_stop = 1.000000e-18
+
+
+ periodic points are: 
+ d =  0 z = +1.300242590220120419; -0.624810533843826587 
+ d =  1 z = -0.300242590220120419; +0.624810533843826587 
+
+
+
+ the sum of all roots should be zero by Viete’s formula (this sum should be the negative of the degree d − 1 coefficient)
+ Viete sum = 1.000000000000000000e+00 ( it should be zero )
+ minimal distnce =1.414214e+00 between
+z1 = +100.000000000000000000 ; +0.000000000000000000 
+z2 = +200.000000000000000000 ; +0.000000000000000000
+```
 
 # Period 2
+
+
+
+
 
 Newton basins  
 
