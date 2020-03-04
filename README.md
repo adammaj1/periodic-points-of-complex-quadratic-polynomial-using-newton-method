@@ -220,6 +220,12 @@ z1 = +100.000000000000000000 ; +0.000000000000000000
 z2 = +200.000000000000000000 ; +0.000000000000000000
 ```
 
+Summary:
+* Number of the roots = 2
+  * 2 fixed points 
+
+
+
 # Period 2
 
 
@@ -299,6 +305,15 @@ real	0m5,223s
 user	0m5,207s
 sys	0m0,016s
 ```
+
+Summary:
+* Number of the roots = 4
+  * 1 period 2 cycle (= 2 )
+  * 2 fixed points 
+
+
+
+
 ## Period 3
 
 ![3](3_16_15.png)
@@ -339,6 +354,11 @@ stopping criterion for the Newton iteration is epsilon_stop = 1.000000e-18
 z1 = -0.300242590220120419 ; +0.624810533843826587 
 z2 = -0.112077118724660643 ; +0.930043059065437968
 ```
+
+Summary:
+* Number of the roots = 8
+  * 2 period 3 cycles (= 6 )
+  * 2 fixed points 
 
 
 # Files
