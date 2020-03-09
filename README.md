@@ -159,7 +159,7 @@ Quote from the paper: [Newton's method in practice II: "The iterated refinement 
 
 Here is my image: 
 
-![12](./12.png) 
+![12](./images/12.png) 
 
 Text output of c program 
 ```
@@ -189,7 +189,7 @@ convert 12.pgm -resize 600x600 12.png
 ```
 
 # Period 1
-![1](1_4_15.png)
+![1](./images/1_4_15.png)
 
 ``` 
  parameter c of the function fc(z) = z^2+c is c = 0.0000000000000000 ; 1.0000000000000000 
@@ -248,17 +248,17 @@ Newton basins
 
 Newton basins, rays and periodic points  
 
-![2_8_13.png](./2_8_13.png) 
+![2_8_13.png](./images/2_8_13.png) 
 
 
 Newton basins with levels sets   
 
-![2_8_14.png](./2_8_14.png) 
+![2_8_14.png](./images/2_8_14.png) 
 
 
 Newton basins with level sets, rays and periodic points  
 
-![2_8_15.png](./2_8_15.png) 
+![2_8_15.png](./images/2_8_15.png) 
 
 
 
@@ -319,7 +319,7 @@ Summary:
 
 ## Period 3
 
-![3](3_16_15.png)
+![3](./images/3_16_15.png)
 
 ```
   parameter c of the function fc(z) = z^2+c is c = 0.0000000000000000 ; 1.0000000000000000 
@@ -464,8 +464,39 @@ git remote add origin git@gitlab.com:adammajewski/periodic-points-of-complex-qua
 git add .
 git commit -m "Initial commit"
 git push -u origin master
+```
+
 
 ```
+  git clone git@gitlab.com:adammajewski/periodic-points-of-complex-quadratic-polynomial-using-newton-method.git
+```
+
+Subdirectory
+
+```git
+mkdir images
+git add *.png
+git mv  *.png ./images
+git commit -m "move"
+git push -u origin master
+```
+then link the images:
+
+```txt
+![](./images/n.png "description") 
+
+```
+
+```git
+gitm mv -f 
+```
+
+to overwrite 
+
+
+
+
+
 
 local repo : ~/c/julia/periodic/newton/pgm2
 
