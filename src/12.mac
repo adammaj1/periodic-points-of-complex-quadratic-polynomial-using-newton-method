@@ -1,0 +1,60 @@
+/*
+
+
+batch file for Maxima CAS
+
+use : 
+batch("12.mac");
+
+
+
+https://en.wikipedia.org/wiki/Table_of_prime_factors
+
+*/
+
+kill(all);
+display2d:false;
+
+/*
+https://en.wikipedia.org/wiki/Complex_quadratic_polynomial
+*/
+f(z,c):=z*z+c;
+
+
+
+/*
+iterated polynomial 
+
+
+*/
+fn(p, z, c) :=
+  if p=0 then z
+  elseif p=1 then f(z,c)
+  else f(fn(p-1, z, c),c);
+  
+/*
+
+function which roots are periodic points 
+f^p(z) = z
+ 
+*/  
+F(p, z, c) := fn(p, z, c) - z ;
+
+
+/* 
+https://stackoverflow.com/questions/35855762/coefficients-of-polynomials-maxima
+list of coefficients
+
+*/
+coeffs1(p,x) := block(
+
+	[l], 
+	l : [],
+	for i from 0 thru hipow(p,x)     
+        	do (l : cons(coeff(p,x,i),l)), 
+        l
+  
+	
+	
+	
+													
