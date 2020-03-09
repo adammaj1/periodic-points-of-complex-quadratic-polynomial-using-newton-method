@@ -192,7 +192,9 @@ convert 12.pgm -resize 600x600 12.png
 ![1](1_4_15.png)
 
 ``` 
-period = 1  
+ parameter c of the function fc(z) = z^2+c is c = 0.0000000000000000 ; 1.0000000000000000 
+
+ period = 1  
  degree of polynomial = 2  = 2^period
 prime factors of 1  = 
  number of roots = number of periodic points = degree of polynomial = 2  
@@ -200,25 +202,29 @@ prime factors of 1  =
 succes : all 2 distinct points are found !!
 
  dt = 2.500000e-01
- radius of the circle around all periodic points = 2.000000
+ radius of the circle around all periodic points = 2.000000e+00
  
  maximal allowed number of Newton iterations nMax = 120  =  10*degree + 100, see setup
  maximal used number of Newton iterations maximal_n = 29 
 stopping criterion for the Newton iteration is epsilon_stop = 1.000000e-18
-
+m_dist = 1.000000000000000036e-10
+ minimal distnce in zzd =1.414214e+00 between roots
+ 
 
  periodic points are: 
- d =  0 z = +1.300242590220120419; -0.624810533843826587 
- d =  1 z = -0.300242590220120419; +0.624810533843826587 
+ z = +1.300242590220120419; -0.624810533843826587 exact period = 1 stability = 2.885147480892119399
+ z = -0.300242590220120419; +0.624810533843826587 exact period = 1 stability = 1.386410929247594584
+
+
+
+
+
+ attracting limit cycle with exact period : 
 
 
 
  the sum of all roots should be zero by Viete’s formula (this sum should be the negative of the degree d − 1 coefficient)
- Viete sum = 1.000000000000000000e+00 ( it should be zero )
- minimal distnce =1.414214e+00 between
-z1 = +100.000000000000000000 ; +0.000000000000000000 
-z2 = +200.000000000000000000 ; +0.000000000000000000
-```
+ Viete sum = 1.000000000000000000e+00 ( it should be zero )```
 
 Summary:
 * Number of the roots = 2
@@ -263,14 +269,7 @@ File names are p_sMax_n.png where:
 Text output of [the program](n.c) 
 
 ```
-
-File 2_8_11.pgm saved. Newton iterations (rays) 
-File 2_8_12.pgm saved. Newton Basins 
-File 2_8_14.pgm saved. Newton Basins with Level Set Method 
-File 2_8_13.pgm saved. Newton Basins and rays 
-File 2_8_15.pgm saved. Newton Basins with Level Sets  and rays 
-File 2_8_16.pgm saved. only roots 
- parameter c from fc(z) = z^2+c is c = 0.000000 ; 1.000000 
+parameter c of the function fc(z) = z^2+c is c = 0.0000000000000000 ; 1.0000000000000000 
 
  period = 2  
  degree of polynomial = 4  = 2^period
@@ -280,31 +279,31 @@ prime factors of 2  = 2
 succes : all 4 distinct points are found !!
 
  dt = 1.250000e-01
- radius of the circle around all periodic points = 2.000000
+ radius of the circle around all periodic points = 2.000000e+00
  
  maximal allowed number of Newton iterations nMax = 140  =  10*degree + 100, see setup
  maximal used number of Newton iterations maximal_n = 42 
 stopping criterion for the Newton iteration is epsilon_stop = 1.000000e-18
-
+m_dist = 1.000000000000000036e-10
+ minimal distnce in zzd =7.939947e-01 between roots
+ 
 
  periodic points are: 
- d =  0 z = +1.300242590220120419; -0.624810533843826587 
- d =  1 z = -0.300242590220120419; +0.624810533843826587 
- d =  2 z = -1.000000000000000000; +1.000000000000000000 
- d =  3 z = -0.000000000000000000; -1.000000000000000000 
+ z = +1.300242590220120419; -0.624810533843826587 exact period = 1 stability = 2.885147480892119399
+ z = -0.300242590220120419; +0.624810533843826587 exact period = 1 stability = 1.386410929247594584
+ z = -1.000000000000000000; +1.000000000000000000 exact period = 2 stability = 5.656854249492380195
+ z = -0.000000000000000000; -1.000000000000000000 exact period = 2 stability = 5.656854249492380195
+
+
+
+
+
+ attracting limit cycle with exact period : 
 
 
 
  the sum of all roots should be zero by Viete’s formula (this sum should be the negative of the degree d − 1 coefficient)
- Viete sum = 1.045143821782786559e-19 ( it should be zero )
- minimal distnce =7.939947e-01 between
-z1 = -0.300242590220120419 ; +0.624810533843826587 
-z2 = -1.000000000000000000 ; +1.000000000000000000
- 
-real	0m5,223s
-user	0m5,207s
-sys	0m0,016s
-```
+ Viete sum = 1.045143821782786559e-19 ( it should be zero )```
 
 Summary:
 * Number of the roots = 4
@@ -319,7 +318,7 @@ Summary:
 ![3](3_16_15.png)
 
 ```
- parameter c from fc(z) = z^2+c is c = 0.000000 ; 1.000000 
+  parameter c of the function fc(z) = z^2+c is c = 0.0000000000000000 ; 1.0000000000000000 
 
  period = 3  
  degree of polynomial = 8  = 2^period
@@ -329,36 +328,90 @@ prime factors of 3  = 3
 succes : all 8 distinct points are found !!
 
  dt = 6.250000e-02
- radius of the circle around all periodic points = 2.000000
+ radius of the circle around all periodic points = 2.000000e+00
  
  maximal allowed number of Newton iterations nMax = 180  =  10*degree + 100, see setup
  maximal used number of Newton iterations maximal_n = 58 
 stopping criterion for the Newton iteration is epsilon_stop = 1.000000e-18
-
+m_dist = 1.000000000000000036e-10
+ minimal distnce in zzd =3.585710e-01 between roots
+ 
 
  periodic points are: 
- d =  0 z = +1.300242590220120419; -0.624810533843826587 
- d =  1 z = +0.100102984663451134; -0.349424850666336804 
- d =  2 z = -0.300242590220120419; +0.624810533843826587 
- d =  3 z = -0.112077118724660643; +0.930043059065437968 
- d =  4 z = -0.852418811174176060; +0.791526907300152676 
- d =  5 z = -1.290491233241733357; +0.779281718235989916 
- d =  6 z = +0.096796551780185860; -1.140114382717044562 
- d =  7 z = +1.058087626696933066; -1.011312451218199194 
+ z = +1.300242590220120419; -0.624810533843826587 exact period = 1 stability = 2.885147480892119399
+ z = +0.100102984663451134; -0.349424850666336804 exact period = 3 stability = 3.168659127802740935
+ z = -0.300242590220120419; +0.624810533843826587 exact period = 1 stability = 1.386410929247594584
+ z = -0.112077118724660643; +0.930043059065437968 exact period = 3 stability = 3.168659127802740858
+ z = -0.852418811174176060; +0.791526907300152676 exact period = 3 stability = 3.168659127802740441
+ z = -1.290491233241733357; +0.779281718235989916 exact period = 3 stability = 20.197817884052375560
+ z = +0.096796551780185860; -1.140114382717044562 exact period = 3 stability = 20.197817884052375560
+ z = +1.058087626696933066; -1.011312451218199194 exact period = 3 stability = 20.197817884052375560
+
+
+
+
+
+ attracting limit cycle with exact period : 
 
 
 
  the sum of all roots should be zero by Viete’s formula (this sum should be the negative of the degree d − 1 coefficient)
- Viete sum = 1.084202172485504434e-19 ( it should be zero )
- minimal distnce =3.585710e-01 between
-z1 = -0.300242590220120419 ; +0.624810533843826587 
-z2 = -0.112077118724660643 ; +0.930043059065437968
-```
+ Viete sum = 1.084202172485504434e-19 ( it should be zero )```
 
 Summary:
 * Number of the roots = 8
   * 2 period 3 cycles (= 6 )
   * 2 fixed points 
+  
+  
+  
+  
+Another example:
+```
+ parameter c of the function fc(z) = z^2+c is c = -0.1225611668766540 ; 0.7448617666197440 
+
+ period = 3  
+ degree of polynomial = 8  = 2^period
+prime factors of 3  = 3	
+ number of roots = number of periodic points = degree of polynomial = 8  
+ number of starting points sMax = 16
+succes : all 8 distinct points are found !!
+
+ dt = 6.250000e-02
+ radius of the circle around all periodic points = 2.000000e+00
+ 
+ maximal allowed number of Newton iterations nMax = 180  =  10*degree + 100, see setup
+ maximal used number of Newton iterations maximal_n = 65 
+stopping criterion for the Newton iteration is epsilon_stop = 1.000000e-18
+m_dist = 1.000000000000000036e-10
+ minimal distnce in zzd =3.065014e-01 between roots
+ 
+
+ periodic points are: 
+ z = +1.276337623593117529; -0.479727984309394897 exact period = 1 stability = 2.727032576504271481
+ z = +0.000000000000000385; +0.000000000000000798 exact period = 3 stability = 0.000000000000004646
+ z = -0.276337623593117529; +0.479727984309394897 exact period = 1 stability = 1.107251409830028695
+ z = -0.122561166876653999; +0.744861766619744015 exact period = 3 stability = 0.000000000000004646
+ z = -0.662358978622372968; +0.562279512062300512 exact period = 3 stability = 0.000000000000004646
+ z = -1.247255127827276373; +0.662949719009367346 exact period = 3 stability = 16.158407096723733116
+ z = +0.038593416246120549; -1.061217891258985840 exact period = 3 stability = 16.158407096723733444
+ z = +0.993581857080182406; -0.908873106432426830 exact period = 3 stability = 16.158407096723733444
+
+
+
+
+
+ attracting limit cycle with exact period : 
+ z = +0.000000000000000385; +0.000000000000000798 exact period = 3 stability = 0.000000000000004646
+ z = -0.122561166876653999; +0.744861766619744015 exact period = 3 stability = 0.000000000000004646
+ z = -0.662358978622372968; +0.562279512062300512 exact period = 3 stability = 0.000000000000004646
+
+
+
+ the sum of all roots should be zero by Viete’s formula (this sum should be the negative of the degree d − 1 coefficient)
+ Viete sum = 2.235140038340936236e-19 ( it should be zero )
+```
+   
 
 
 # Files

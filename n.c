@@ -61,6 +61,45 @@ real	0m5,223s
 user	0m5,207s
 sys	0m0,016s
 
+==============================
+
+File 1_4_11.pgm saved. Newton iterations (rays) 
+File 1_4_12.pgm saved. Newton Basins 
+File 1_4_14.pgm saved. Newton Basins with Level Set Method 
+File 1_4_13.pgm saved. Newton Basins and rays 
+File 1_4_15.pgm saved. Newton Basins with Level Sets  and rays 
+File 1_4_16.pgm saved. only roots 
+ parameter c from fc(z) = z^2+c is c = 0.000000 ; 1.000000 
+
+ period = 1  
+ degree of polynomial = 2  = 2^period
+prime factors of 1  = 
+ number of roots = number of periodic points = degree of polynomial = 2  
+ number of starting points sMax = 4
+succes : all 2 distinct points are found !!
+
+ dt = 2.500000e-01
+ radius of the circle around all periodic points = 2.000000
+ 
+ maximal allowed number of Newton iterations nMax = 120  =  10*degree + 100, see setup
+ maximal used number of Newton iterations maximal_n = 29 
+stopping criterion for the Newton iteration is epsilon_stop = 1.000000e-18
+
+
+ periodic points are: 
+ d =  0 z = +1.300242590220120419; -0.624810533843826587 
+ d =  1 z = -0.300242590220120419; +0.624810533843826587 
+
+
+
+ the sum of all roots should be zero by Viete’s formula (this sum should be the negative of the degree d − 1 coefficient)
+ Viete sum = 1.000000000000000000e+00 ( it should be zero )
+ minimal distnce =1.414214e+00 between
+z1 = +100.000000000000000000 ; +0.000000000000000000 
+z2 = +200.000000000000000000 ; +0.000000000000000000
+=================================================
+
+
 
 
 ----------------------
@@ -102,8 +141,7 @@ int nMax; // limit for maxima number of Newton iterations  = 50+10 * d = M_fail
 int maximal_n = 0; // global maximal n = for all pixels
 int local_max_n = 0; // local mximal n = for one pixel
 
-complex long double c = 0.0+1.0*I ; // dendrit Julia set
-
+complex long double c = 0.0  +1.0*I ; // dendrite 
 const long double pi = 3.1415926535897932384626433832795029L;
 
 
@@ -579,6 +617,7 @@ int DrawRays(unsigned char A[]){
   		 
   		zp = GivePeriodicAndDrawRay( c , z0, period, EPS2, A); // compute periodic point 
   		zzs[s] = zp; // save all found points 
+  		//printf("z0 = %.16f %.16f  zp = %.16f %.16f\n", creal(z0), cimag(z0), creal(zp), cimag(zp));
   		t += dt; // next angle using globl variable dt
   	}
   	
@@ -604,8 +643,9 @@ uses global :
 
 */
 int IsDistinct(complex long double z, int d_length){
-	int d; 
-	int dMax = d_length+1; // d starts from 0 to dMax-1
+
+	int d; // index of zzd array
+	int dMax = d_length; // d starts from 0 to dMax-1
 	
 	long double distance2 = 0.0L;
 	
@@ -663,7 +703,7 @@ int FindDistinctPoints(){
 		z = zzs[s]; // take next point
 		// 
 		if (IsDistinct(z,d)){
-			zzd[d] = z; // move to zzd 
+			zzd[d] = z; // move from zzs to zzd 
 			d +=1;
 		}
 			
@@ -681,6 +721,8 @@ int FindDistinctPoints(){
 
 
 }
+
+
 
 
 
@@ -795,6 +837,35 @@ int DrawNewtonBasins(unsigned char A[], unsigned char B[]){
 
 
 
+//
+int CheckOrientation(unsigned char A[] ){
+
+	int ix, iy;
+	int i;
+	complex long double z;
+	
+	
+	
+	// for all points (x,y) of the image ( 2D array)
+	for(iy=0;iy<iyMax;iy++)
+ 		for(ix=0;ix<ixMax;ix++){ 
+ 			     
+ 			z = GiveZ(ix, iy);  // compute pixel coordinate   
+ 			if (creal(z)>0 && cimag(z)>0.0){
+ 				i = Give_i(ix, iy); // compute idex of 1D array	
+				A[i] = 255-A[i]; // 
+				} 
+			
+			}
+	return 0;
+
+
+
+}
+
+
+
+
 int DrawRoots(unsigned char A[]){
 	int d;
 	for (d=0; d<distinc_points; d++ )
@@ -838,6 +909,7 @@ long double ComputeVieteSum(){
 /* 
 
 https://en.wikipedia.org/wiki/Closest_pair_of_points_problem
+
 */
 long double ComputeMinimalDIstanceBetweenRoots(){
 
@@ -845,8 +917,8 @@ long double ComputeMinimalDIstanceBetweenRoots(){
 	long double minimal_dist;
 	long double dist2;
 	int i,j;
-	complex long double z1 = 100;
-	complex long double z2 = 200;
+	//complex long double z1 = 100;
+	//complex long double z2 = 200;
 	
 	
 	for (i=0; i<distinc_points-1; i++ )
@@ -854,22 +926,19 @@ long double ComputeMinimalDIstanceBetweenRoots(){
 			dist2 = cabs2(zzd[i] - zzd[j]);
 			if (dist2 < minimal_dist2) {
 				minimal_dist2 = dist2;
-				z1 = zzd[i];
-				z2 = zzd[j];
+				//z1 = zzd[i];
+				//z2 = zzd[j];
 				}
 		 	}
 	
 	minimal_dist = sqrtl(minimal_dist2);
-	printf(" minimal distnce =%Le between\nz1 = %+.18Lf ; %+.18Lf \nz2 = %+.18Lf ; %+.18Lf\n ", minimal_dist, creall(z1), cimagl(z1), creall(z2), cimagl(z2));
+	//printf(" minimal distnce in zzd =%Le between\nz1 = %+.18Lf ; %+.18Lf \nz2 = %+.18Lf ; %+.18Lf\n ", minimal_dist, creall(z1), cimagl(z1), creall(z2), cimagl(z2));
 	//dDrawBigPoint_Inverted( z1, data);
 	//dDrawBigPoint_Inverted( z2, data);
 	return minimal_dist;
 
 
 }
-
-
-
 
 
 
@@ -938,10 +1007,63 @@ int setup()
 
 
 
+int GivePeriod(complex long double z0, int pMax){
+	
+	
+	int p = 0;
+	complex long double z = z0;
+	
+	for (p = 1; p<= pMax; ++p ){
+		z = z*z+c;
+		if (cabs2(z - z0)< EPS2) 
+			return p ;
+		
+		}
+	
+	return -1;
+
+}
+
+
+
+/*
+
+https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/periodic_points#stability_of_periodic_points_(orbit)_-_multiplier
+
+ magnitude of the first derivative of  f^p with respect to  z at z0
+ 
+ https://en.wikipedia.org/wiki/Complex_quadratic_polynomial#First_derivative_with_respect_to_z
+ 
+*/
+long double GiveStability(complex long double z0, complex long double c, int period){
+
+
+	complex double d = 1.0; /* d = first derivative with respect to z */
+	int p;
+	int pMax = period;
+	complex long double z = z0;
+
+	for (p=0; p < pMax; p++){
+		d = 2*z*d; /* first derivative with respect to z */
+   		z = z*z +c ; /* complex quadratic polynomial */
+       
+		}
+	return cabsl(d);
+
+
+
+}
+
+
+
 int info(){
 	int d; 
+	int exact_period;
+	complex long double z;
+	long double stability;
+	
 
-	printf (" parameter c from fc(z) = z^2+c is c = %Lf ; %Lf \n",  creall(c), cimagl(c)); 
+	printf (" parameter c of the function fc(z) = z^2+c is c = %.16Lf ; %.16Lf \n",  creall(c), cimagl(c)); 
 	printf ("\n");
 	printf (" period = %d  \n",  period); 
 	
@@ -953,19 +1075,22 @@ int info(){
 	printf (" number of starting points sMax = %d\n", sMax);
 	if ( sMax<degree) printf("sMax < degree !!! it should be equal or greater \n");
 	if (distinc_points < degree) 
-		printf(" only %d from %d distinct points are found, increase sMax \n ", distinc_points, degree);
-		else printf("succes : all %d distinct points are found !!\n", distinc_points);
+		printf(" only %d from %d distinct points are found !!!\n Possible solutions:\n increase m_dist \n  increase  number of starting points sMax \n ", distinc_points, degree);
+		else {
+			if(distinc_points ==degree) printf("succes : all %d distinct points are found !!\n", distinc_points);
+				else {printf ("error : distinc_points =%d > degree = %d \n", distinc_points, degree); }
+		}
 	
 	printf ("\n");
 	printf (" dt = %Le\n", dt);
-	printf (" radius of the circle around all periodic points = %Lf\n", radius);
+	printf (" radius of the circle around all periodic points = %Le\n", radius);
 	printf (" \n");
 	printf (" maximal allowed number of Newton iterations nMax = %d  =  10*degree + 100, see setup\n", nMax);
 	printf (" maximal used number of Newton iterations maximal_n = %d \n", maximal_n);
 	if (nMax == maximal_n) printf(" possible error : nMax == maximal_n ; increase nMax \n");
 	
 	printf ("stopping criterion for the Newton iteration is epsilon_stop = %Le\n", EPS);
-	
+	printf("m_dist = %.18Le\n", m_dist);
   	
   	
   	//if (point_errors>0) printf ("point_errors = %d\n", point_errors);
@@ -979,18 +1104,39 @@ int info(){
 		printf(" s = %d z = %.18Lf; %.18Lf \n", s, creall(zzs[s]), cimagl(zzs[s]));	
 	printf("\n\n\n");
 	*/
+	
+	
+	MinimalDistanceBetweenRoots = ComputeMinimalDIstanceBetweenRoots();
+	printf(" minimal distnce in zzd =%Le between roots\n ", MinimalDistanceBetweenRoots);
+	
+	
 	//  only distinct points from zzd array
 	printf("\n\n periodic points are: \n");
-	for (d=0; d<distinc_points; d++ )
-		printf(" d = %2d z = %+.18Lf; %+.18Lf \n", d, creall(zzd[d]), cimagl(zzd[d]));
+	for (d=0; d<distinc_points; d++ ){
+		z = zzd[d];
+		exact_period = GivePeriod(z, period);
+		stability = GiveStability( z, c, exact_period);
+		printf(" z = %+.18Lf; %+.18Lf exact period = %d stability = %.18Lf\n", creall(z), cimagl(z), exact_period, stability);
+		}
 	printf("\n\n\n");
+  	
+  	//  only distinct points from zzd array
+	printf("\n\n attracting limit cycle with exact period : \n");
+	for (d=0; d<distinc_points; d++ ){
+		z = zzd[d];
+		exact_period = GivePeriod(z, period);
+		stability = GiveStability( z, c, exact_period);
+		if (stability < 1.0 && exact_period == period) printf(" z = %+.18Lf; %+.18Lf exact period = %d stability = %.18Lf\n", creall(z), cimagl(z), exact_period, stability);
+		}
+	printf("\n\n\n");
+  	
   	
   	
   	VieteSum = ComputeVieteSum();
   	printf(" the sum of all roots should be zero by Viete’s formula (this sum should be the negative of the degree d − 1 coefficient)\n");
   	printf(" Viete sum = %.18Le ( it should be zero )\n", VieteSum);
   	
-  	MinimalDistanceBetweenRoots = ComputeMinimalDIstanceBetweenRoots();
+  	
   	
   	
 	return 0;
@@ -1042,6 +1188,9 @@ int main() {
    		DrawRays(data2);
    		SaveArray2PGMFile( data2, period, sMax, 15,  "Newton Basins with Level Sets  and rays");
    		
+   		CheckOrientation(data2);
+   		SaveArray2PGMFile( data2, period, sMax, 16,  "Newton Basins with Level Sets and rays, marked first quadrant");
+   		
   	  	
   		}
   		else printf("degree >= 255. There are only 255 colors so basins are not drawn \n");
@@ -1049,7 +1198,7 @@ int main() {
   	// 
   	FillArray(data); // make all points white = 255
   	DrawRootsColor(data, 0); // draw black roots on white background
-  	SaveArray2PGMFile( data, period, sMax, 16,  "only roots");
+  	SaveArray2PGMFile( data, period, sMax, 17,  "only roots");
   
   
   
