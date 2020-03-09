@@ -179,7 +179,7 @@ point_drawn = 400
 
 
 Code:
-* [m.c](m.c) - c code ( 1 file program which creates pgm file)
+* [m.c](./src/m.c) - c code ( 1 file program which creates pgm file)
 
 
 Conversion from pgm to png using Image Magick: 
@@ -242,7 +242,7 @@ Summary:
 
 Newton basins  
 
-![2_8_12.png](./2_8_12.png) 
+![2_8_12.png](./images/2_8_12.png) 
 
 
 
@@ -268,7 +268,7 @@ File names are p_sMax_n.png where:
 * n is an arbitrary number of a picture
 
 
-Text output of [the program](n.c) 
+Text output of [the program](./src/n.c) 
 
 ```
 parameter c of the function fc(z) = z^2+c is c = 0.0000000000000000 ; 1.0000000000000000 
@@ -421,10 +421,10 @@ m_dist = 1.000000000000000036e-10
 
 
 # Files
-* [m.c](m.c) - c code ( 1 file program which creates 12.pgm file)
-* [n.c](n.c) - c code ( 1 file program which creates pgm files: basins and rays  )
-* [p.mac](p.mac) - Maxima CAS batch file ( program) 
-* [2.mac](2.mac) - Maxima CAS batch file ( program) for checking peroid 2 case 
+* [m.c](./src/m.c) - c code ( 1 file program which creates 12.pgm file)
+* [n.c](./src/n.c) - c code ( 1 file program which creates pgm files: basins and rays  )
+* [p.mac](./src/p.mac) - Maxima CAS batch file ( program) 
+* [2.mac](./src/2.mac) - Maxima CAS batch file ( program) for checking peroid 2 case 
 
 
 # See also
