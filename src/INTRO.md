@@ -1,5 +1,5 @@
 
-# Introduction
+Introduction
 
 
 
@@ -55,7 +55,7 @@ It is used as a basic function in Newton method.
 
 
 
-## Iteration of quadratic polynomial
+# Iteration of quadratic polynomial
 Both function and it's derivative are computed together by iteration : 
 
 
@@ -65,7 +65,7 @@ $`z'_p = 2*z_{p-1}*z'_{p-1}`$
 $`z_p = z_{p-1}^2 + c`$  
 
 
-## Newton method ( iteration)
+# Newton method ( iteration)
 Now one can iterate Newton function N 
 
 
@@ -124,7 +124,7 @@ $`r = e / p `$
 
 
 
-## Vieta's formula
+# Vieta's formula
 
 One cech check if all roots are found using [Vieta's formulas](https://en.wikipedia.org/wiki/Vieta%27s_formulas)
 
@@ -142,4 +142,6 @@ long double ComputeVieteSum(){
 
 
 
+# Stability
 
+[Stability](https://en.wikipedia.org/wiki/Periodic_points_of_complex_quadratic_mappings#Stability_of_periodic_points_(orbit)_-_multiplier) of periodic point / cycle
