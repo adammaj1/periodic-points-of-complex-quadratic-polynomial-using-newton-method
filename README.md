@@ -225,6 +225,8 @@ m_dist = 1.000000000000000036e-10
 
  the sum of all roots should be zero by Viete’s formula (this sum should be the negative of the degree d − 1 coefficient)
  Viete sum = 1.000000000000000000e+00 ( it should be zero )```
+```
+
 
 Summary:
 * Number of the roots = 2
@@ -304,6 +306,8 @@ m_dist = 1.000000000000000036e-10
 
  the sum of all roots should be zero by Viete’s formula (this sum should be the negative of the degree d − 1 coefficient)
  Viete sum = 1.045143821782786559e-19 ( it should be zero )```
+```
+
 
 Summary:
 * Number of the roots = 4
@@ -357,6 +361,8 @@ m_dist = 1.000000000000000036e-10
 
  the sum of all roots should be zero by Viete’s formula (this sum should be the negative of the degree d − 1 coefficient)
  Viete sum = 1.084202172485504434e-19 ( it should be zero )```
+```
+
 
 Summary:
 * Number of the roots = 8
