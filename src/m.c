@@ -83,6 +83,12 @@ static const long double ZyMin = -2.1;	//
 static const long double ZyMax = 2.1;	//
  long double PixelWidth;	// =(ZxMax-ZxMin)/ixMax;
 long double PixelHeight;	// =(ZyMax-ZyMin)/iyMax;
+
+
+long double distanceMax;
+long double PixelWidthRatio = 1.0; 
+
+
 static long double ratio;
 
 complex long double z0 ; // initial aproximation for Newton method; 
@@ -157,6 +163,16 @@ int point_drawn = 0;
 
 
 
+
+
+// from screen to world coordinate ; linear mapping
+// uses global cons
+complex long double GiveZ( int ix, int iy){ 
+	long double zx = ZxMin + ix*PixelWidth;
+	long double zy = ZyMax - iy*PixelHeight; // reverse y axis
+   	return (zx + zy*I);
+
+}
 
 
 /* -----------  array functions -------------- */
@@ -435,6 +451,74 @@ return z;
 
 
 
+// ***************************************************************************************************************************
+// ************************** DEM/J*****************************************
+// ****************************************************************************************************************************
+
+double ComputeDistance(complex double z){
+// https://en.wikibooks.org/wiki/Fractals/Iterations_in_the_complex_plane/Julia_set#DEM.2FJ
+
+
+  int nMax = 5000; 
+  double ER = 160;		// EscapeRadius for bailout test  , minimal =  2.0
+  complex double dz = 1.0; //  is first derivative with respect to z.
+  double distance = 0.0;
+  double cabsz;
+	
+  int n;
+
+  // compute distance from point z to the boundary of Julia set
+  for (n=0; n < nMax; n++){ //forward iteration
+
+    if (cabs(z)> ER || cabs(dz)> 1e60) break; // big values
+    
+  			
+    dz = 2.0*z * dz; 
+    z = z*z +c ; /* forward iteration : complex quadratic polynomial */ 
+  }
+  
+  if (n==nMax) 
+  	{distance = -1.0;} // 
+  	else {
+  		cabsz = cabs(z);
+  		distance = 2.0 * cabsz* log(cabsz)/ cabs(dz);
+  		}
+  	
+  		
+   
+  return distance;
+}
+
+
+
+int DrawJulia(unsigned char A[]){
+	
+	int ix, iy;
+	int i;
+	complex long double z;
+	double distance;
+	
+	
+	
+	// for all points (x,y) of the image ( 2D array)
+	for(iy=0;iy<iyMax;iy++)
+ 		for(ix=0;ix<ixMax;ix++){ 
+ 			     
+ 			z = GiveZ(ix, iy);  // compute pixel coordinate 
+ 			distance = ComputeDistance(z);  
+ 			if (distance < distanceMax){
+ 				i = Give_i(ix, iy); // compute idex of 1D array	
+				A[i] = 255-A[i]; // 
+				} 
+			
+			}
+	return 0;
+
+
+}
+
+
+
 
 
 
@@ -470,7 +554,9 @@ int setup()
 	//
 	PixelWidth = (ZxMax-ZxMin)/ixMax;
         PixelHeight = (ZyMax-ZyMin)/iyMax;
-	
+
+        distanceMax =   PixelWidthRatio*PixelWidth; // BoundaryWidth = here boundary is changing with resolution, maybe % of ImageWidth would be better ? 
+	        	
 	ratio = ( ZxMax - ZxMin)/ (ZyMax-ZyMin);
 	
 	
@@ -551,7 +637,13 @@ int main() {
   	
   	
   // 	
-  SaveArray2PGMFile( data, period, "");
+  SaveArray2PGMFile( data, period, "only rays");
+  
+  DrawJulia(data);
+  SaveArray2PGMFile( data, 100+period, "Julia set and rays");
+  
+  
+  
   end();
   
  

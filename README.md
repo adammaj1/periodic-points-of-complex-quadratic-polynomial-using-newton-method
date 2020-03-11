@@ -24,9 +24,14 @@ Quote from the paper: [Newton's method in practice II: "The iterated refinement 
 
 
 
-Here is my image: 
+Here is my image of rays  
 
 ![12](./images/12.png) 
+
+
+Julia set and rays
+
+![112](./images/112.png) 
 
 Text output of c program 
 ```
