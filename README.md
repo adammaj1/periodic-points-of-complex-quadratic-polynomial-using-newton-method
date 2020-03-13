@@ -196,6 +196,8 @@ Summary:
 
 ### Period 3
 
+First example : periodic points of the dendrite Julia set
+
 ![3](./images/3_16_15.png)
 
 ```
@@ -249,9 +251,15 @@ Summary:
   
   
   
-Another example:
+Second example: periodic points of Rabbit Julia set ( c is a center of period 3 hyperbolic component of Mandelbrot set)  
+
+
 ```
  parameter c of the function fc(z) = z^2+c is c = -0.1225611668766540 ; 0.7448617666197440 
+ 
+ 
+ ![3_16_6.png](./images/3_16_16.png)
+ 
 
  period = 3  
  degree of polynomial = 8  = 2^period
