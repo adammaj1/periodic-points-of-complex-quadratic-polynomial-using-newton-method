@@ -257,9 +257,6 @@ Second example: periodic points of Rabbit Julia set ( c is a center of period 3 
 ```
  parameter c of the function fc(z) = z^2+c is c = -0.1225611668766540 ; 0.7448617666197440 
  
- 
- ![3_16_6.png](./images/3_16_16.png)
- 
 
  period = 3  
  degree of polynomial = 8  = 2^period
@@ -303,6 +300,8 @@ m_dist = 1.000000000000000036e-10
  Viete sum = 2.235140038340936236e-19 ( it should be zero )
 ```
    
+ ![3_16_6.png](./images/3_16_16.png)
+
 
 
 # Files
