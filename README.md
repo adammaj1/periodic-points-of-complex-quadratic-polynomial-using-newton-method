@@ -123,7 +123,7 @@ Newton basins, rays and periodic points
 ![2_8_13.png](./images/2_8_13.png) 
 
 
-Newton basins with levels sets   
+Newton basins with levels sets of Newton iterations   
 
 ![2_8_14.png](./images/2_8_14.png) 
 
@@ -131,6 +131,11 @@ Newton basins with levels sets
 Newton basins with level sets, rays and periodic points  
 
 ![2_8_15.png](./images/2_8_15.png) 
+
+
+Newton basins with Julia set, level sets of Newton iterations, rays and periodic points  
+
+![2_8_16d.png](./images/2_8_16d.png) 
 
 
 
