@@ -1,15 +1,14 @@
 [How to find numerically all roots of a polynomial, especially the complex ones, by using the Newton-Raphson Method](https://math.stackexchange.com/questions/998333/finding-the-all-roots-of-a-polynomial-by-using-newton-raphson-method)
 
 TOC:
-* [INTRO.md](./src/INTRO.md) - Introduction : theory and implementation
-* Examples
+* [INTRO.md](./src/INTRO.md) - Introduction : theory and implementation, muliplicity, multiplier, ...
+* Simple roots ( multiplicity = 1)
   * period 12
   * period 1
   * period 2
   * period 3
-* See also
-* Technical notes
-  * Git
+* multiple roots ( multiplicity > 1)
+
   
 # Examples
 
@@ -309,17 +308,6 @@ m_dist = 1.000000000000000036e-10
 * [n.c](./src/n.c) - c code ( 1 file program which creates pgm files: basins and rays  )
 * [p.mac](./src/p.mac) - Maxima CAS batch file ( program) 
 * [2.mac](./src/2.mac) - Maxima CAS batch file ( program) for checking peroid 2 case 
-
-
-# See also
-* [LA MÉTHODE DE NEWTON ET SON FRACTAL](http://images.math.cnrs.fr/La-methode-de-Newton-et-son-fractal.html?lang=fr) by Tan Lei
-* [Newton Fractal](https://www.mitchr.me/SS/newton/index.html) by Mitch Richling
-* [Newton's method for periodic points](http://mathr.co.uk/blog/2018-11-17_newtons_method_for_periodic_points.html) by Claude Heiland-Allen
-* [Newton Fractals](https://cindyjs.org/gallery/main/NewtonFractal/) - interactive version ( using CindyJS)
-* Newton Fractals by Chris Harshaw: 
-  * [blog](http://www.chrisharshaw.com/?p=34)
-  * [videos ](https://vimeo.com/user47350684)
-  * [python code](https://github.com/crharshaw/blog_materials)
 
 
 # Acknowledgments
