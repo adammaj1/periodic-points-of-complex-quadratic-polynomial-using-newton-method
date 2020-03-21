@@ -1,3 +1,5 @@
+[README](README.md)
+
 
 Introduction
 
@@ -111,7 +113,7 @@ return z;
 ## Schroeder method = Newton first type method 
 
 
-Modified for multiple roots
+[Modified for multiple roots](https://en.wikipedia.org/wiki/Newton%27s_method#Slow_convergence_for_roots_of_multiplicity_greater_than_1)
 
 
 ```math
@@ -167,7 +169,7 @@ long double ComputeVieteSum(){
 # Multiple roots and multiplicity of polynomial root
 * [math.stackexchange question: estimating-the-multiplicity-of-a-root-numerically](https://math.stackexchange.com/questions/698858/estimating-the-multiplicity-of-a-root-numerically)
 * [Dynamical control of Newton’s method for multiple roots of polynomials by S. Graillat, F. Jézéquel and M. S. Ibrahim](https://hal.archives-ouvertes.fr/hal-01363961/document)
-
+* [math.stackexchange question: is-modified-newtons-raphson-method-redundant](https://math.stackexchange.com/questions/3089817/is-modified-newtons-raphson-method-redundant)
 
 ## How to compute (aproximate) multiplicity of the root numerically?
 
@@ -188,7 +190,7 @@ where:
 * m is a multiplicity of root x1
 * x1 is a root
 * x2 is the result of first Newton iteration
-
+* x3 is the result of second Newton iteration
 
 ```math
 \begin{matrix}
@@ -201,14 +203,18 @@ x_3 = N(x_2)
 
 ### Sanyasiraju VSS Yedida method
 
-[Sanyasiraju VSS Yedida](https://mat.iitm.ac.in/home/sryedida/public_html/caimna/transcendental/iteration%20methods/accelerating%20the%20convergence/mrac.html)
+[Sanyasiraju VSS Yedida](https://mat.iitm.ac.in/home/sryedida/public_html/) [method](https://mat.iitm.ac.in/home/sryedida/public_html/caimna/transcendental/iteration%20methods/accelerating%20the%20convergence/mrac.html)
 
 
 ```math
-\begin{matrix}
 m(x_1) =  \frac{1}{1-c}\\
+```
+
+where :   
+
+
+```math
 c =  \frac{x_3 - x_2}{x_2- x_1}
-\end{matrix}
 ```
 
 

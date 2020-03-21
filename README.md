@@ -1,7 +1,7 @@
 [How to find numerically all roots of a polynomial, especially the complex ones, by using the Newton-Raphson Method](https://math.stackexchange.com/questions/998333/finding-the-all-roots-of-a-polynomial-by-using-newton-raphson-method)
 
 TOC:
-* [INTRO.md](./src/INTRO.md) - Introduction : theory and implementation, muliplicity, multiplier, ...
+* [Introduction](./src/INTRO.md) : theory and implementation, muliplicity, multiplier, ...
 * Simple roots ( multiplicity = 1)
   * period 12
   * period 1
