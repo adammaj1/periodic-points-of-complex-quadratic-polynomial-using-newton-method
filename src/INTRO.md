@@ -137,7 +137,7 @@ $` e \le d `$
 
 Number of cycles  
 
-$`r = e / p `$
+$`r = \frac{e}{p} `$
 
 
 
@@ -173,6 +173,26 @@ long double ComputeVieteSum(){
 
 ## How to compute (aproximate) multiplicity of the root numerically?
 
+
+### SE 
+
+[SE](https://math.stackexchange.com/questions/698858/estimating-the-multiplicity-of-a-root-numerically)
+
+if $f(\cdot)$ has a root at $x$, it holds $f(x)=0$. Furthermore, if you want to calculate the multiplicity you have to find the minimum $`m`$ s.t.:
+$`f^{(m)}=0 `$
+
+So, you can compute the derivatives, and if $`|f^{(m)}|<\varepsilon`$, where $`\varepsilon`$ represents a tolerance variable, thus $`m`$ is the number you are looking for.
+
+
+
+### Grobner
+ 
+  
+ In the univariate case, where a is a root of f(x) of multiplicity d iff 
+ 
+ ∂n ∂Xn (f)(α)=0 ∀n, 0 ≤ n<d.  
+
+see : [ON MULTIPLICITIES IN POLYNOMIAL SYSTEM SOLVING by M. G. MARINARI, H. M. MOLLER, AND T. MORA](https://www.ams.org/journals/tran/1996-348-08/S0002-9947-96-01671-6/S0002-9947-96-01671-6.pdf)
 
 ### Ostrowski method
 [Ostrowski 1973](https://books.google.nl/books?id=L_dqjIjOGBcC&pg=PA349&lpg=PA349&dq=Estimating%20the%20multiplicity%20of%20a%20root%20newton&source=bl&ots=yEtuRQ0PPR&sig=xNYnTGAzhctwCXzLvAWNvsGmDHs&hl=en&sa=X&ei=SaoVU-iJDof-ygPE24HYDg&ved=0CDcQ6AEwAjgU#v=onepage&q=Estimating%20the%20multiplicity%20of%20a%20root%20newton&f=false)
