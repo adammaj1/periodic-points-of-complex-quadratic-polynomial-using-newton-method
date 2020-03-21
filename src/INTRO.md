@@ -121,7 +121,7 @@ z_{n+1} = z_n - m \frac {F(z_n)}{ F'(z_n)}
 ```
 
 where:
-* m is a multiplier of multiple root
+* m is a multiplicity of the root ( positive integer  )
 
 
 # Number of periodic points and cycles
