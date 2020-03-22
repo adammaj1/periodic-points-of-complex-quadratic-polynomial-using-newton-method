@@ -181,7 +181,7 @@ long double ComputeVieteSum(){
 
 [SE](https://math.stackexchange.com/questions/698858/estimating-the-multiplicity-of-a-root-numerically)
 
-if $f(\cdot)$ has a root at $x$, it holds $f(x)=0$. Furthermore, if you want to calculate the multiplicity you have to find the minimum $`m`$ s.t.:
+if $`f(\cdot)`$ has a root at $`x`$, it holds $`f(x)=0`$. Furthermore, if you want to calculate the multiplicity you have to find the minimum $`m`$ s.t.:
 $`f^{(m)}=0 `$
 
 So, you can compute the derivatives, and if $`|f^{(m)}|<\varepsilon`$, where $`\varepsilon`$ represents a tolerance variable, thus $`m`$ is the number you are looking for.
