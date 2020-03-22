@@ -172,6 +172,9 @@ long double ComputeVieteSum(){
 * [math.stackexchange question: is-modified-newtons-raphson-method-redundant](https://math.stackexchange.com/questions/3089817/is-modified-newtons-raphson-method-redundant)
 
 ## How to compute (aproximate) multiplicity of the root numerically?
+* [A study of accelerated Newton methods for multiple polynomial roots by Aurél Galántai and Aurél Galántai](https://www.researchgate.net/publication/225620593_A_study_of_accelerated_Newton_methods_for_multiple_polynomial_roots)
+* [Multiplicity estimating algorithm for zeros of a complex polynomial and its applications by Tsuyako Miyakoda ](https://core.ac.uk/download/pdf/82716417.pdf)
+* [Nonlinear Polynomial Systems: Multiple Roots and their Multiplicities by K. H. Ko, T Sakkalis](http://deslab.mit.edu/DesignLab/new_deslab/pubs/smi04.pdf)
 
 
 ### SE 
