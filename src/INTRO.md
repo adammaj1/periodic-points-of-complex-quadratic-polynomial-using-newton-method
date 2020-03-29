@@ -172,9 +172,38 @@ long double ComputeVieteSum(){
 * [math.stackexchange question: is-modified-newtons-raphson-method-redundant](https://math.stackexchange.com/questions/3089817/is-modified-newtons-raphson-method-redundant)
 
 ## How to compute (aproximate) multiplicity of the root numerically?
+
+Multiplicity estimates
 * [A study of accelerated Newton methods for multiple polynomial roots by Aurél Galántai and Aurél Galántai](https://www.researchgate.net/publication/225620593_A_study_of_accelerated_Newton_methods_for_multiple_polynomial_roots)
 * [Multiplicity estimating algorithm for zeros of a complex polynomial and its applications by Tsuyako Miyakoda ](https://core.ac.uk/download/pdf/82716417.pdf)
 * [Nonlinear Polynomial Systems: Multiple Roots and their Multiplicities by K. H. Ko, T Sakkalis](http://deslab.mit.edu/DesignLab/new_deslab/pubs/smi04.pdf)
+
+
+### graphical method
+
+[math.stackexchange question : what-is-the-intuition-for-the-multiplicity-of-a-root-of-a-polynomial-equation](https://math.stackexchange.com/questions/2716268/what-is-the-intuition-for-the-multiplicity-of-a-root-of-a-polynomial-equation)
+
+
+
+### definition
+
+[Math Tutor - multiplicity](http://math.feld.cvut.cz/mt/txtb/3/txe4ba3c.htm)
+
+Let c be a root of a function f. We say that it is a root of multiplicity k if f (c) = 0, f ′(c) = 0, ... f (k−1)(c) = 0, but f (k)(c) ≠ 0.
+
+
+
+###  derivative ratios
+[ROOTS OF POLYNOMIALS BY RATIO OF SUCCESSIVE DERIVATIVES by James E. Crouse and Charles W. Putt](https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19720015971.pdf)
+
+the ratios of successive polynomial derivatives give the following very useful information: 
+* the multiplicity of a root; that is, the number of roots at the root point approached
+* the closeness of a trial point to the root approached
+*  a good approximation as to where the next nearest root is when at a root.
+
+
+The first derivative ratio  = $` P'(x)/P(x) `$
+The second derivative ratio = $` P''(x)/P'(x) `$
 
 
 ### SE 
