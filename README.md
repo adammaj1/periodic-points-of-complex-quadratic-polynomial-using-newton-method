@@ -398,11 +398,11 @@ Dynamical plane : colour is proportional to arg(f^2(z)) in turns
 
 One can count how many times argument is changing around a root.
 
-To do it one can use  [this c program](./src/m.c)
+To do it one can use  [this c program](./src/multiplicity.c)
 
 Here is the image how argument ( measured with carg function) is changing around root:    
 
-![](./images/2_arg/png)
+![](./images/2_arg.png)
 
 
 
