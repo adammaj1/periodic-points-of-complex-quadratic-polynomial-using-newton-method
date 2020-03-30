@@ -306,7 +306,7 @@ m_dist = 1.000000000000000036e-10
 
 ## period 2 = Basilica Julia set
 ```math
-f(z) = z^2 - 1
+f(z) = z^2 - 3/4
 
 ```
 
@@ -317,13 +317,69 @@ f^2(z) - z
 ```
 
 Image :
-* level sets of Newton method with Newton rays
+* 2 periodic points and 2 basin of attractions with level sets of Newton method with Newton rays
 * Julia set
 * periodic points 
 
 ![](./images/2_8_16_p.png)
 
+One can see that   
+* one ray lands on the right periodic point
+* other rays land on the right periodic point
+
+Numbers of Newton iteration before before method converges:  
+```
+ ray : n = 6
+ ray : n = 48
+ ray : n = 76
+ ray : n = 45
+ ray : n = 40
+ ray : n = 43
+ ray : n = 61
+ ray : n = 48
+```
+
+One point is easily reached after few ( 6 ) Newton iterations, but second ( probably right) periodic point is hard to reach ( 45 to 76 Newton iterations). 
+It probably means that one point is a simple root (algorithm converges quadratically ) and other is multiple root ( algorithm converges linearly)  
+
+Text output of the program:
+
+```txt
+period = 2  
+ degree of polynomial = 4  = 2^period
+prime factors of 2  = 2	
+ number of roots = number of periodic points = degree of polynomial = 4  
+ number of starting points sMax = 8
+ only 2 from 4 distinct points are found !!!
+ Possible solutions:
+ multiple roots so do nothing 
+ increase m_dist 
+  increase  number of starting points sMax 
+ 
+ dt = 1.250000e-01
+ radius of the circle around all periodic points = 2.000000e+00
+ 
+ maximal allowed number of Newton iterations nMax = 140  =  10*degree + 100, see setup
+ maximal used number of Newton iterations maximal_n = 140 
+ possible error : nMax == maximal_n ; increase nMax 
+ stopping criterion for the Newton iteration is epsilon_stop = 1.000000e-18
+ m_dist = 9.999999999999999547e-07
+ minimal distnce in zzd =1.414214e+00 between roots
+ 
+
+ periodic points are: 
+ z = +1.500000000000000000; +0.000000000000000000 exact period = 1 stability = 3.000000000000000000 
+ z = -0.500000128997930818; +0.000000000000000000 exact period = 2 stability = 0.999999999999900080 
+
+
+ attracting limit cycle with exact period = 2: 
+```
+
+
+
 How to find multiplicity of periodic points ?
+
+
 
 Dynamic plane ( complex plane) : colour is proportional to carg(z) in turns
 
@@ -333,12 +389,13 @@ Dynamical plane : colour is proportional to carg(f^2(z)) in turns
 
 ![](./images/2.png)
 
-
+One can count how many times argument is chaging around a root.  
 
 
 # Files
 * [m.c](./src/m.c) - c code ( 1 file program which creates 12.pgm file)
 * [n.c](./src/n.c) - c code ( 1 file program which creates pgm files: basins and rays  )
+* [p.c](./src/p.c) - c code for parabolic case
 * [p.mac](./src/p.mac) - Maxima CAS batch file ( program) 
 * [2.mac](./src/2.mac) - Maxima CAS batch file ( program) for checking peroid 2 case 
 

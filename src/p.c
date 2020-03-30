@@ -19,85 +19,74 @@ Marvin Randig, Dierk Schleicher, Robin Stoll
 (Submitted on 16 Mar 2017 (v1), last revised 31 Dec 2017 (this version, v2))
 We present a practical implementation based on Newton's method to find all roots of several families of complex polynomials of degrees exceeding one billion (109) so that the observed complexity to find all roots is between O(dlnd) and O(dln3d) (measuring complexity in terms of number of Newton iterations or computing time). All computations were performed successfully on standard desktop computers built between 2007 and 2012.
 ------------------------------------
-
+ ray : n = 6
+ ray : n = 48
+ ray : n = 76
+ ray : n = 45
+ ray : n = 40
+ ray : n = 43
+ ray : n = 61
+ ray : n = 48
 File 2_8_11.pgm saved. Newton iterations (rays) 
+Drawing Newton Basins 
 File 2_8_12.pgm saved. Newton Basins 
 File 2_8_14.pgm saved. Newton Basins with Level Set Method 
+ ray : n = 6
+ ray : n = 48
+ ray : n = 76
+ ray : n = 45
+ ray : n = 40
+ ray : n = 43
+ ray : n = 61
+ ray : n = 48
 File 2_8_13.pgm saved. Newton Basins and rays 
+ ray : n = 6
+ ray : n = 48
+ ray : n = 76
+ ray : n = 45
+ ray : n = 40
+ ray : n = 43
+ ray : n = 61
+ ray : n = 48
 File 2_8_15.pgm saved. Newton Basins with Level Sets  and rays 
-File 2_8_16.pgm saved. only roots 
- parameter c from fc(z) = z^2+c is c = 0.000000 ; 1.000000 
+File 2_8_16.pgm saved. Newton Basins with Level Sets, rays and Julia set 
+File 2_8_17.pgm saved. Newton Basins with Level Sets and rays, marked first quadrant 
+File 2_8_17.pgm saved. only roots 
+File 2_8_18.pgm saved. roots and Julia 
+File 2_8_19.pgm saved. turn 
+ parameter c of the function fc(z) = z^2+c is c = -0.7500000000000000 ; 0.0000000000000000 
 
  period = 2  
  degree of polynomial = 4  = 2^period
 prime factors of 2  = 2	
  number of roots = number of periodic points = degree of polynomial = 4  
  number of starting points sMax = 8
-succes : all 4 distinct points are found !!
-
+ only 2 from 4 distinct points are found !!!
+ Possible solutions:
+ multiple roots so do nothing 
+ increase m_dist 
+  increase  number of starting points sMax 
+ 
  dt = 1.250000e-01
- radius of the circle around all periodic points = 2.000000
+ radius of the circle around all periodic points = 2.000000e+00
  
  maximal allowed number of Newton iterations nMax = 140  =  10*degree + 100, see setup
- maximal used number of Newton iterations maximal_n = 42 
+ maximal used number of Newton iterations maximal_n = 140 
+ possible error : nMax == maximal_n ; increase nMax 
 stopping criterion for the Newton iteration is epsilon_stop = 1.000000e-18
-
+m_dist = 9.999999999999999547e-07
+ minimal distnce in zzd =1.414214e+00 between roots
+ 
 
  periodic points are: 
- d =  0 z = +1.300242590220120419; -0.624810533843826587 
- d =  1 z = -0.300242590220120419; +0.624810533843826587 
- d =  2 z = -1.000000000000000000; +1.000000000000000000 
- d =  3 z = -0.000000000000000000; -1.000000000000000000 
+ z = +1.500000000000000000; +0.000000000000000000 exact period = 1 stability = 3.000000000000000000 
+ z = -0.500000128997930818; +0.000000000000000000 exact period = 2 stability = 0.999999999999900080 
 
 
 
- the sum of all roots should be zero by Viete’s formula (this sum should be the negative of the degree d − 1 coefficient)
- Viete sum = 1.045143821782786559e-19 ( it should be zero )
- minimal distnce =7.939947e-01 between
-z1 = -0.300242590220120419 ; +0.624810533843826587 
-z2 = -1.000000000000000000 ; +1.000000000000000000
- 
-real	0m5,223s
-user	0m5,207s
-sys	0m0,016s
-
-==============================
-
-File 1_4_11.pgm saved. Newton iterations (rays) 
-File 1_4_12.pgm saved. Newton Basins 
-File 1_4_14.pgm saved. Newton Basins with Level Set Method 
-File 1_4_13.pgm saved. Newton Basins and rays 
-File 1_4_15.pgm saved. Newton Basins with Level Sets  and rays 
-File 1_4_16.pgm saved. only roots 
- parameter c from fc(z) = z^2+c is c = 0.000000 ; 1.000000 
-
- period = 1  
- degree of polynomial = 2  = 2^period
-prime factors of 1  = 
- number of roots = number of periodic points = degree of polynomial = 2  
- number of starting points sMax = 4
-succes : all 2 distinct points are found !!
-
- dt = 2.500000e-01
- radius of the circle around all periodic points = 2.000000
- 
- maximal allowed number of Newton iterations nMax = 120  =  10*degree + 100, see setup
- maximal used number of Newton iterations maximal_n = 29 
-stopping criterion for the Newton iteration is epsilon_stop = 1.000000e-18
 
 
- periodic points are: 
- d =  0 z = +1.300242590220120419; -0.624810533843826587 
- d =  1 z = -0.300242590220120419; +0.624810533843826587 
-
-
-
- the sum of all roots should be zero by Viete’s formula (this sum should be the negative of the degree d − 1 coefficient)
- Viete sum = 1.000000000000000000e+00 ( it should be zero )
- minimal distnce =1.414214e+00 between
-z1 = +100.000000000000000000 ; +0.000000000000000000 
-z2 = +200.000000000000000000 ; +0.000000000000000000
-=================================================
+ attracting limit cycle with exact period = 2: 
 
 
 
