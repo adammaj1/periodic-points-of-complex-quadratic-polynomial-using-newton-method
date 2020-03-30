@@ -183,7 +183,9 @@ Multiplicity estimates
 
 [math.stackexchange question : what-is-the-intuition-for-the-multiplicity-of-a-root-of-a-polynomial-equation](https://math.stackexchange.com/questions/2716268/what-is-the-intuition-for-the-multiplicity-of-a-root-of-a-polynomial-equation)
 
+One can [estimate multiplicity](https://stackoverflow.com/questions/60801319/how-to-estimate-multiplicity-of-the-polynomial-root) by counting how many times argument is changing around a root. 
 
+see example : [basilica](README.md#period-2-basilica-julia-set)
 
 ### definition
 

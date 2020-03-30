@@ -7,8 +7,8 @@ TOC:
   * period 1
   * period 2
   * period 3
-* multiple roots ( multiplicity > 1)
-
+* multiple roots ( multiplicity > 1) - parabolic case
+  * [Basilica Julia set](README.md#period-2-basilica-julia-set)
   
 # Simple roots
 
@@ -381,15 +381,17 @@ How to find multiplicity of periodic points ?
 
 
 
-Dynamic plane ( complex plane) : colour is proportional to carg(z) in turns
+Dynamic plane ( complex plane) : colour is proportional to arg(z) in turns
 
 ![](./images/0.png)
 
-Dynamical plane : colour is proportional to carg(f^2(z)) in turns
+Dynamical plane : colour is proportional to arg(f^2(z)) in turns
 
 ![](./images/2.png)
 
-One can count how many times argument is chaging around a root.  
+One can count how many times argument is changing around a root.  
+
+
 
 
 # Files
