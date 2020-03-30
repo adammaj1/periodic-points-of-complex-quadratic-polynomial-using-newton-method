@@ -10,7 +10,7 @@ TOC:
 * multiple roots ( multiplicity > 1)
 
   
-# Examples
+# Simple roots
 
 ## Period 12
 >>>
@@ -300,6 +300,39 @@ m_dist = 1.000000000000000036e-10
 ```
    
  ![3_16_6.png](./images/3_16_16.png)
+
+
+# Multiple roots ( multiplicity > 1) - parabolic case
+
+## period 2 = Basilica Julia set
+```math
+f(z) = z^2 - 1
+
+```
+
+Periodic points are roots of the function : 
+
+```math
+f^2(z) - z 
+```
+
+Image :
+* level sets of Newton method with Newton rays
+* Julia set
+* periodic points 
+
+![](./images/2_8_16_p.png)
+
+How to find multiplicity of periodic points ?
+
+Dynamic plane ( complex plane) : colour is proportional to carg(z) in turns
+
+![](./images/0.png)
+
+Dynamical plane : colour is proportional to carg(f^2(z)) in turns
+
+![](./images/2.png)
+
 
 
 
