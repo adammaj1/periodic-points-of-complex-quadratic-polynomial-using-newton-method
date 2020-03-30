@@ -374,7 +374,14 @@ prime factors of 2  = 2
 
  attracting limit cycle with exact period = 2: 
 ```
+One can see that:
+* one root is repelling ( stability > 1)
+* the second root is parabolic ( stability is aproximately equal to 1 )
 
+
+Good results using symbolic computations are roots: 
+*  z = 3/2 with multiplicity 1
+* z = -1/2 with multiplicities 3
 
 
 How to find multiplicity of periodic points ?
@@ -389,7 +396,13 @@ Dynamical plane : colour is proportional to arg(f^2(z)) in turns
 
 ![](./images/2.png)
 
-One can count how many times argument is changing around a root.  
+One can count how many times argument is changing around a root.
+
+To do it one can use  [this c program](./src/m.c)
+
+Here is the image how argument ( measured with carg function) is changing around root:    
+
+![](./images/2_arg/png)
 
 
 
