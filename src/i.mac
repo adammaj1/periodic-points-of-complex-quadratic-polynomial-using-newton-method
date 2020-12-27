@@ -1,0 +1,129 @@
+/*
+
+find periodic points of f^n(z,c)
+zn = z0
+
+
+A useful way to visualize the roots of a complex function is to plot the 0 contours of the real and imaginary parts. That is, compute z = Dm(...) on a reasonably dense grid, and then use matplotlib's contour function to plot the contours where z.real is 0 and where z.imag is zero. The roots of the function are the points where these contours intersect.
+Warren Weckesser
+
+https://stackoverflow.com/questions/24419164/storing-roots-of-a-complex-function-in-an-array-in-scipy/24421779#24421779
+
+
+
+*/
+
+kill(all);
+remvalue(all);
+ratprint:false;
+numer:true$
+display2d:false$
+
+
+declare (z, complex)$
+declare ([x,y], real)$
+z:x+y*%i;
+
+
+/* -------------------functions --------------------------------------*/
+f(z):= z*z+c$ /* complex quadratic polynomial */
+
+/* iterated function */
+fn(n, z) :=
+  if n=0 
+  	then z
+  	else 	(if n=1 
+  			then f(z)
+  			else f(fn(n-1, z))
+  		)$
+
+/* for periodic points {z: zp=z0 }*/  
+Fn(n,z) := fn(n, z) - z$
+  
+/* 
+converts complex number z = x*y*%i 
+to the list in a draw format:  
+[x,y] 
+*/
+dr(z):=[float(realpart(z)), float(imagpart(z))]$
+
+ToPoints(myList):= points(map(dr,myList))$
+  
+compile(all)$
+
+
+/* constants */  
+period :2$
+
+c:-3/4$
+
+
+/* ------------------ computations ---------------------------------------*/
+zp:  Fn(period, z)$
+e1: realpart(zp )=0$
+e2: imagpart(zp )=0$
+
+/* 
+find periodic points using numerical method 
+*/
+polyfactor:false$ 
+if ( period < 6) /* allroots fails for period >5 */
+	then sol: allroots(%i*Fn(period, w))
+	else ( /* increase precision of numerical computations */
+		print("bfloat"),
+		fpprec : 32, /*Default value: 16, it is the number of significant digits for arithmetic on bigfloat numbers */
+		float2bf : true,
+		sol: bfallroots(%i*Fn(period, bfloat(w) ))
+		
+		)$
+		
+sol: map(rhs,sol)$
+intersections:ToPoints(sol)$
+
+sTitle: sconcat("Periodic points f(z) = z*z-3/4 period = ", string(period))$
+MyPreamble : "set key box opaque"$ /* legend ovelaps the graph */
+
+dSize : 2$ /* image size in world coordinate =  x, -dSize,dSize, y, -dSize,dSize), */
+path:"~/Dokumenty/newton/2/"$ /*  pwd, if empty then file is in a home dir , path should end with "/" */
+
+/* draw it using draw package ( Maxima-Gnuplot interface) by Mario Rodríguez Riotorto */
+draw2d(
+	file_name = sconcat(path, string(period)),
+	terminal   = pngcairo,
+	dimensions = [600,600],
+	/* the text */
+  	color     = black,
+  	font      = "Courier",
+  	font_size = 15,
+	title = sTitle, 
+	user_preamble = MyPreamble,
+  	/* */
+  	grid       = false,
+  	xaxis = false,
+  	yaxis = false,
+  	xaxis_type  = solid,
+  	yaxis_type  = solid,
+  	xaxis_color = black,
+  	yaxis_color = black,
+  	proportional_axes = xy,
+  
+  	/* implicit curves */
+  	ip_grid = [200, 200], /* precision and time of computations for implicit curves */
+  	line_width = 1.7,
+  	line_type = solid,
+  	/* first curve */
+  	key        = "re",
+  	color = blue,
+  	implicit(e1, x, -dSize,dSize, y, -dSize,dSize),
+  	/* second curve */
+  	color      = red,
+  	key        = "im",
+  	implicit(e2, x, -dSize,dSize, y, -dSize,dSize), 
+  	/* points */
+  	point_type= filled_circle,
+  	point_size = 1.5,
+  	color= black,
+  	key = "periodic",
+  	intersections 
+  
+   ) $
