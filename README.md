@@ -384,7 +384,7 @@ Good results using symbolic computations are roots:
 * z = -1/2 with multiplicities 3
 
 
-How to find multiplicity of periodic points ?
+**How to find multiplicity of periodic points ?**
 
 
 
@@ -405,14 +405,21 @@ Here is the image how argument ( measured with carg function) is changing around
 ![](./images/2_arg.png)
 
 
+** Periodic points as an intersections of 2 impicit curves **
+> A useful way to visualize the roots of a complex function is to plot the 0 contours of the real and imaginary parts. That is, compute z = Dm(...) on a reasonably dense grid, and then use >matplotlib's contour function to plot the contours where z.real is 0 and where z.imag is zero. The roots of the function are the points where these contours intersect. [Warren Weckesser](https://stackoverflow.com/questions/24419164/storing-roots-of-a-complex-function-in-an-array-in-scipy/)
+![](./images/2i.png)
+![](./images/3i.png)
+![](./images/4i.png)
 
 
 # Files
 * [m.c](./src/m.c) - c code ( 1 file program which creates 12.pgm file)
 * [n.c](./src/n.c) - c code ( 1 file program which creates pgm files: basins and rays  )
 * [p.c](./src/p.c) - c code for parabolic case
+* [multiplicity.c](./src/multiplicity.c) - c program for numerical estimation of root's multiplicity
 * [p.mac](./src/p.mac) - Maxima CAS batch file ( program) 
 * [2.mac](./src/2.mac) - Maxima CAS batch file ( program) for checking peroid 2 case 
+* [i.mac](./src/i.mac) - Maxima CAS batch file ( program) for drawing periodic points as an intersections of implicit curves 
 
 
 # Acknowledgments
