@@ -405,7 +405,7 @@ Here is the image how argument ( measured with carg function) is changing around
 ![](./images/2_arg.png)
 
 
-** Periodic points as an intersections of 2 impicit curves **
+**Periodic points as an intersections of 2 impicit curves**
 > A useful way to visualize the roots of a complex function is to plot the 0 contours of the real and imaginary parts. That is, compute z = Dm(...) on a reasonably dense grid, and then use >matplotlib's contour function to plot the contours where z.real is 0 and where z.imag is zero. The roots of the function are the points where these contours intersect. [Warren Weckesser](https://stackoverflow.com/questions/24419164/storing-roots-of-a-complex-function-in-an-array-in-scipy/)
 ![](./images/2i.png)
 ![](./images/3i.png)
